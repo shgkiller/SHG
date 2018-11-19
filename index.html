@@ -44,6 +44,22 @@
       <li><a href="index.html">Home</a></li>
       
         <li class="divider"></li>
+        <li><label>HTML学习</label></li>
+
+          
+            <li><a title="HTML基础" href="15422622903877.html">HTML基础</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>Vue学习</label></li>
+
+          
+            <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
+          
+
+      
+        <li class="divider"></li>
         <li><label>微信小程序</label></li>
 
           
@@ -66,6 +82,18 @@
                   <ul id="side-nav" class="side-nav">
 
                     
+                      <li class="side-title"><span>HTML学习</span></li>
+                        
+                          <li><a title="HTML基础" href="15422622903877.html">HTML基础</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>Vue学习</span></li>
+                        
+                          <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
+                        
+
+                    
                       <li class="side-title"><span>微信小程序</span></li>
                         
                           <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
@@ -84,30 +112,33 @@
 
 	
 		<div class="markdown-body">
-		<h1>点击事件 bindtap事件与catchtap事件</h1>
+		<h1>报错：Elements in iteration expect to have 'v-bind:key' directives.</h1>
 
-		<h4 id="toc_0">大家好，最近一直在研究小程序开发，当对控件绑定事件的时候，发现 bindtap 和catchtap都可以触发事件，然而 点击单个按钮，这两个方法都可以实现事件触发，实现页面跳转功能等等，那么他俩到底有何区别呢？</h4>
+		<h5 id="toc_0">Vue 2.2.0+的版本里，当在组件中使用v-for时，key是必须的。</h5>
 
-<h5 id="toc_1">经过查阅资料，发现其区别在于：</h5>
+<p>报这个错有2个解决方案:<br/>
+1.更改vetur配置   </p>
 
-<p><strong>bindtap</strong>：改事件绑定不会阻止冒泡事件向上冒泡。<br/>
-   <strong>catchtap</strong>：该事件绑定可以阻止冒泡事件向上冒泡。</p>
+<blockquote>
+<p>点击vscode-&gt;首选项-&gt;设置-&gt;搜索（vetur),输入vetur.validation.template,<br/>
+ <img src="media/15426083995443/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%882.30.03.png" alt="屏幕快照 2018-11-19 下午2.30.03"/></p>
 
-<h5 id="toc_2">那么，什么事冒泡事件和非冒泡事件呢？</h5>
+<p>然后打开settings.json,将左边内容复制 在右边粘贴并改为false即可。<br/>
+ <img src="media/15426083995443/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%882.32.09.png" alt="屏幕快照 2018-11-19 下午2.32.09"/></p>
+</blockquote>
 
-<ol>
-<li> 冒泡事件：当一个控件上的事件被触发后，它的事件会向其父视图节点传递，此时父视图的事件也会触发。</li>
-<li>非冒泡事件：当一个控件上的事件被触发后，它的事件不会向父视图节点传递，此时父视图的事件不会触发。</li>
-</ol>
-
-<p>目前个人偏好比较喜欢常用<strong>catchtap</strong>。<br/>
-举个例子：<img src="media/15417357453723/5FB6FFCD-D62C-4806-A19E-3DDBA6406894.png" alt="5FB6FFCD-D62C-4806-A19E-3DDBA6406894"/></p>
-
-<p>这是一个列表页面，每一条数据有详情页面 每一条数据上还有一个按钮控件。<br/>
-如果每一条数据上没有其他控件有触发事件的话，用bind和catch都行,点击每一条数据都会进入详情页。如果有的话，那么其子控件要用catch触发事件，不然其图里的按钮事件触发完之后，会触发view的bindtap事件，进入详情页了。</p>
+<p>2 在v-for循环中直接加上 :key=&quot;xxx&quot;,这样 也不会报错<br/>
+ 例如：<br/>
+ <img src="media/15426083995443/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%882.36.52.png" alt="屏幕快照 2018-11-19 下午2.36.52"/></p>
 
 
 		</div>
+	
+
+ 
+	
+
+ 
 	
 
   
