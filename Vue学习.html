@@ -55,6 +55,8 @@
         <li><label>Vue学习</label></li>
 
           
+            <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
+          
             <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
           
 
@@ -90,6 +92,8 @@
                     
                       <li class="side-title"><span>Vue学习</span></li>
                         
+                          <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
+                        
                           <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
                         
 
@@ -112,27 +116,88 @@
 
 	
 		<div class="markdown-body">
-		<h1>报错：Elements in iteration expect to have 'v-bind:key' directives.</h1>
+		<h1>Vue.js 监听属性 watch</h1>
 
-		<h5 id="toc_0">Vue 2.2.0+的版本里，当在组件中使用v-for时，key是必须的。</h5>
-
-<p>报这个错有2个解决方案:<br/>
-1.更改vetur配置   </p>
+		<h5 id="toc_0">通过watch来相应数据的变化，处理函数</h5>
 
 <blockquote>
-<p>点击vscode-&gt;首选项-&gt;设置-&gt;搜索（vetur),输入vetur.validation.template,<br/>
- <img src="media/15426083995443/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%882.30.03.png" alt="屏幕快照 2018-11-19 下午2.30.03"/></p>
+<h5 id="toc_1">目前 我们把它分为普通监听（也叫浅监听）和深度监听</h5>
 
-<p>然后打开settings.json,将左边内容复制 在右边粘贴并改为false即可。<br/>
- <img src="media/15426083995443/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%882.32.09.png" alt="屏幕快照 2018-11-19 下午2.32.09"/></p>
+<ul>
+<li>普通监听就是对变量直接进行监听</li>
+<li>深度监听就是对对象中的变量进行监听</li>
+</ul>
 </blockquote>
 
-<p>2 在v-for循环中直接加上 :key=&quot;xxx&quot;,这样 也不会报错<br/>
- 例如：<br/>
- <img src="media/15426083995443/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%882.36.52.png" alt="屏幕快照 2018-11-19 下午2.36.52"/></p>
+<p>例如：</p>
+
+<pre><code class="language-text">
+&lt;template&gt;
+  &lt;div class=&quot;hello&quot;&gt;
+    &lt;input class=&quot;colortext&quot; text type=&quot;text&quot; v-model=&quot;demo&quot;&gt;&lt;br&gt;
+    {{value}}&lt;br&gt;
+    &lt;input class=&quot;colortext&quot; text type=&quot;text&quot; v-model=&quot;obj.name&quot;&gt;&lt;br&gt;
+   {{value1}}&lt;br&gt;
+   {{value2}}&lt;br&gt;
+   {{value5}}&lt;br&gt;
+    &lt;input class=&quot;colortext&quot; text type=&quot;text&quot; v-model=&quot;num&quot;&gt;&lt;br&gt;
+   {{value3}}&lt;br&gt;
+   {{value4}}&lt;br&gt;
+   
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &#39;HelloWorld&#39;,
+  data () {
+    return {
+      msg: &#39;Welcome to Your Vue.js App&#39;,
+      demo: &#39;&#39;,
+      value: &#39;&#39;,
+      num:1,
+      obj:{
+          name:&#39;三儿&#39;,
+          age:&#39;21&#39;,
+          sex:&#39;女&#39; 
+        }
+    }
+  },
+  watch:{
+    num(val, oldVal){
+    //普通的watch监听 
+    console.log(&quot;num: &quot;+val, oldVal);
+     this.value3=val;
+     this.value4=oldVal;
+    },
+    obj:{
+    //深度监听，可监听到对象、数组的变化 此时val和oldVal值一样 如果需求要用到oldVal，须要用到 计算属性的方法computed，可得到上次oldVal的值
+      handler(val, oldVal){
+      console.log(&quot;obj.name: &quot;+val.name, oldVal.name);
+      this.value1=val.name;
+      this.value2=oldVal.name;
+      },
+      deep:true
+    },
+    //深度监听时需用到oldVal时用，上次的值
+    zhibianhua(newval,oldVal) {
+      this.value5=oldVal;
+    }
+  },
+  computed: {
+    zhibianhua: function () {
+      return this.obj.name
+    }
+  }
+}
+
+</code></pre>
 
 
 		</div>
+	
+
+ 
 	
 
   
