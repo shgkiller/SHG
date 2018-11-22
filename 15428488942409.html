@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  点击事件 bindtap事件与catchtap事件 - 时光宝盒
+  关于层 - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -144,27 +144,21 @@
             <div class="large-9 medium-9 columns">
 
  <div class="markdown-body">
-<h1>点击事件 bindtap事件与catchtap事件</h1>
+<h1>关于层</h1>
 
-<h4 id="toc_0">大家好，最近一直在研究小程序开发，当对控件绑定事件的时候，发现 bindtap 和catchtap都可以触发事件，然而 点击单个按钮，这两个方法都可以实现事件触发，实现页面跳转功能等等，那么他俩到底有何区别呢？</h4>
+<ul>
+<li>图层</li>
+<li>对象层</li>
+</ul>
 
-<h5 id="toc_1">经过查阅资料，发现其区别在于：</h5>
+<blockquote>
+<p>对象层：主要用于放置NPC、金币、主角、宝箱等，该类特点是经常会移动、变换形态、显示或隐藏等。另外对于我们自定义的一些选框、路径等也可以放在此层中 </p>
 
-<p><strong>bindtap</strong>：改事件绑定不会阻止冒泡事件向上冒泡。<br/>
-   <strong>catchtap</strong>：该事件绑定可以阻止冒泡事件向上冒泡。</p>
+<p>图像图层：字面意思用于放置整张的图片。属性框中可以选择使用的图片文件、位置、RGB透明度等，实际使用中很少用到，而且cocos论坛中有使用者提出使用这个后会导致地图解析出错。 </p>
 
-<h5 id="toc_2">那么，什么事冒泡事件和非冒泡事件呢？</h5>
-
-<ol>
-<li> 冒泡事件：当一个控件上的事件被触发后，它的事件会向其父视图节点传递，此时父视图的事件也会触发。</li>
-<li>非冒泡事件：当一个控件上的事件被触发后，它的事件不会向父视图节点传递，此时父视图的事件不会触发。</li>
-</ol>
-
-<p>目前个人偏好比较喜欢常用<strong>catchtap</strong>。<br/>
-举个例子：<img src="media/15417357453723/5FB6FFCD-D62C-4806-A19E-3DDBA6406894.png" alt="5FB6FFCD-D62C-4806-A19E-3DDBA6406894"/></p>
-
-<p>这是一个列表页面，每一条数据有详情页面 每一条数据上还有一个按钮控件。<br/>
-如果每一条数据上没有其他控件有触发事件的话，用bind和catch都行,点击每一条数据都会进入详情页。如果有的话，那么其子控件要用catch触发事件，不然其图里的按钮事件触发完之后，会触发view的bindtap事件，进入详情页了。</p>
+<p>图像图层   图层：用于分隔不同作用的地图元素以方便管理和实现层叠显示。举例跑酷的场景中可以将地面、背景建筑、碰撞物体等分层放置，对于背景只是用来增加画面效果不会用于判断碰撞等事件，墙壁等瓦片图如果不能充满整个图块就会造成颜色不协调（同一个图块位置无法放置两种不同的瓦片图），所以层的出现解决了这个棘手的问题，保证了背景可以存在上面又能用墙壁等瓦片图遮挡显示一部分图片。 <br/>
+图层主要放置不会改变的图片，如地面或墙壁等（当然游戏中也会有会塌陷的地面） </p>
+</blockquote>
 
 
 </div>
@@ -176,13 +170,16 @@
   <div class="large-6 columns">
 	<div class="text-left" style="padding:15px 0px;">
 		
-	        <a href="15422622903877.html"  title="Previous Post: HTML基础">&laquo; HTML基础</a>
+	        <a href="15428544691205.html"  title="Previous Post: 1. Cocos2d-x如何创建项目">&laquo; 1. Cocos2d-x如何创建项目</a>
 	    
 	</div>
   </div>
   <div class="large-6 columns">
 	<div class="text-right" style="padding:15px 0px;">
 		
+	        <a href="15426919106501.html" 
+	        title="Next Post: Vue.js 监听属性 watch">Vue.js 监听属性 watch &raquo;</a>
+	    
 	</div>
   </div>
 </div>
@@ -194,7 +191,7 @@
 </div>
 <script type="text/javascript">
 	$(function(){
-		var currentURL = 'bindtap-catchtap.html';
+		var currentURL = '15428488942409.html';
 		$('#side-nav a').each(function(){
 			if($(this).attr('href') == currentURL){
 				$(this).parent().addClass('active');

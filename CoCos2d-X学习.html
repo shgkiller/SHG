@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  点击事件 bindtap事件与catchtap事件 - 时光宝盒
+  CoCos2d-X学习 - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -143,65 +143,85 @@
             </div>
             <div class="large-9 medium-9 columns">
 
- <div class="markdown-body">
-<h1>点击事件 bindtap事件与catchtap事件</h1>
+ 
 
-<h4 id="toc_0">大家好，最近一直在研究小程序开发，当对控件绑定事件的时候，发现 bindtap 和catchtap都可以触发事件，然而 点击单个按钮，这两个方法都可以实现事件触发，实现页面跳转功能等等，那么他俩到底有何区别呢？</h4>
 
-<h5 id="toc_1">经过查阅资料，发现其区别在于：</h5>
+	
+		<div class="markdown-body">
+		<h1>2. 浅析Helloword项目![865AF051-A18D-460C-9105-586CA7227134](media/15428583120056/865AF051-A18D-460C-9105-586CA7227134.png)</h1>
 
-<p><strong>bindtap</strong>：改事件绑定不会阻止冒泡事件向上冒泡。<br/>
-   <strong>catchtap</strong>：该事件绑定可以阻止冒泡事件向上冒泡。</p>
-
-<h5 id="toc_2">那么，什么事冒泡事件和非冒泡事件呢？</h5>
+		<p>C++工程结构</p>
 
 <ol>
-<li> 冒泡事件：当一个控件上的事件被触发后，它的事件会向其父视图节点传递，此时父视图的事件也会触发。</li>
-<li>非冒泡事件：当一个控件上的事件被触发后，它的事件不会向父视图节点传递，此时父视图的事件不会触发。</li>
+<li><p><strong>Classes文件夹</strong></p>
+<p>存放C++文件，定义游戏的所有文件</p></li>
+<li><p><strong>Resources文件夹</strong><br/>
+主要存放 图片、音频、动画、字体等文件</p></li>
+<li><p><strong>Frameworkers</strong><br/>
+存放库文件，有ios用的 和 cocos2d-x用的库文件，三方文件</p></li>
+<li><p><strong>cocos2d_libs.scodeproj 工程文件</strong><br/>
+它包含了cocos2d-x引擎的源码,它是以类库的形式引入到了ios的工程里 </p></li>
+<li><p><strong>cocos2d-x的声明周期</strong><br/>
+它的生命周期类似于ios oc开发 </p>
+<ul>
+<li>applicationDidFinishLaunching  程序启动入口</li>
+<li>applicationDidEnterBackground  程序进入后台</li>
+<li>applicationWillEnterForeground 程序将要进入前台</li>
+</ul></li>
+<li><p><strong>部分代码含义</strong></p>
+<ol>
+<li><p>auto director = Director::getInstance();</p>
+<ul>
+<li>导演类 以单例的形式创建和调用</li>
+</ul></li>
+<li><p>auto glview = director-&gt;getOpenGLView();</p>
+<ul>
+<li>获取opengl视图<br/></li>
+</ul></li>
+<li><p>director-&gt;setDisplayStats(true); 设置是否显示帧率信息</p>
+<ul>
+<li>GL verts:    opengl 中渲染的顶点数</li>
+<li>GL calls:    opengl 中渲染的批次</li>
+<li>xx/xx        帧率/ 每帧运行的秒数</li>
+</ul></li>
+<li><p>director-&gt;setAnimationInterval(1.0f / 60);  设置帧率大小。<br/>
+引擎的默认设置每秒钟60帧，也就是屏幕每秒钟会刷新重绘60次，它基本满足人眼每秒刷新的最高频率的一个完美运行状态，超出60帧，对人的观看 意义不大，感官上基本识别不出来了已经。</p></li>
+<li><p>auto scene = HelloWorld::createScene();</p>
+<ul>
+<li>创建一个场景对象</li>
+</ul></li>
+<li><p>director-&gt;runWithScene(scene);</p>
+<ul>
+<li>运行启动场景 </li>
+</ul></li>
+<li><p>getVisiblesize();</p>
+<ul>
+<li>获取可视区域的大小</li>
+</ul></li>
+<li><p>getWinSize();</p>
+<ul>
+<li>获取窗口的大小</li>
+</ul></li>
+<li><p>场景scene类 它就是一个层的容器 它是抽象出来的一个类</p></li>
+<li><p>layer类  </p></li>
+<li><p>一个场景中可能会有多个层 或者一个层，先添加的层会在后添加的层的下面 </p>
+<ul>
+<li>addChild（Node * child ,int localzOrder, int tag） localzOrder值越大 它的层越靠上，它的默认值是0。 tag是个标记值，可以通过tag获取某个层。</li>
+</ul></li>
+<li><p>精灵类 sprite </p></li>
+<li><p>Node 节点类 </p></li>
+</ol></li>
 </ol>
 
-<p>目前个人偏好比较喜欢常用<strong>catchtap</strong>。<br/>
-举个例子：<img src="media/15417357453723/5FB6FFCD-D62C-4806-A19E-3DDBA6406894.png" alt="5FB6FFCD-D62C-4806-A19E-3DDBA6406894"/></p>
 
-<p>这是一个列表页面，每一条数据有详情页面 每一条数据上还有一个按钮控件。<br/>
-如果每一条数据上没有其他控件有触发事件的话，用bind和catch都行,点击每一条数据都会进入详情页。如果有的话，那么其子控件要用catch触发事件，不然其图里的按钮事件触发完之后，会触发view的bindtap事件，进入详情页了。</p>
+		</div>
+	
 
+ 
+	
 
-</div>
-
-<br /><br />
-<hr />
-
-<div class="row clearfix">
-  <div class="large-6 columns">
-	<div class="text-left" style="padding:15px 0px;">
-		
-	        <a href="15422622903877.html"  title="Previous Post: HTML基础">&laquo; HTML基础</a>
-	    
-	</div>
-  </div>
-  <div class="large-6 columns">
-	<div class="text-right" style="padding:15px 0px;">
-		
-	</div>
-  </div>
-</div>
-
-<div class="row">
-<div style="padding:0px 0.93em;" class="share-comments">
-
-</div>
-</div>
-<script type="text/javascript">
-	$(function(){
-		var currentURL = 'bindtap-catchtap.html';
-		$('#side-nav a').each(function(){
-			if($(this).attr('href') == currentURL){
-				$(this).parent().addClass('active');
-			}
-		});
-	});
-</script>  
+  
+  
 </div></div>
 
 
