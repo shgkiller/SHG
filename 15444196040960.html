@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  HTML基础 - 时光宝盒
+  created和mounted区别？ - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -176,238 +176,10 @@
             <div class="large-9 medium-9 columns">
 
  <div class="markdown-body">
-<h1>HTML基础</h1>
+<h1>created和mounted区别？</h1>
 
-<p>1.HTML标题是通过&lt; h1&gt;-&lt; h6&gt;标签来定义的。&emsp;&emsp;如 &lt; h2&gt;这是一个标题&lt; /h2&gt;<br/>
-2.HTML段落是通过标签&lt; p&gt;来定义的。&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;如&lt; p&gt;这是另外一个段落。&lt; /p&gt;<br/>
-3.HTML链接是通过标签 &lt; a&gt;来定义的。&emsp;&emsp; 如 &lt; a href=&quot;<a href="http://www.runoob.com%22%3E%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%93%BE%E6%8E%A5">http://www.runoob.com&quot;&gt;这是一个链接</a>&lt; /a&gt;  &emsp;&emsp; 提示:在 href 属性中指定链接的地址。<br/>
-4.HTML图像通过标签 &lt; img&gt; 来定义的. &emsp;&emsp; <br/>
-如&lt; img src=&quot;/images/logo.png&quot; width=&quot;258&quot; height=&quot;39&quot; /&gt;</p>
-
-<h4 id="toc_0">HTML 常用属性参考</h4>
-
-<table>
-<thead>
-<tr>
-<th style="text-align: center">属性</th>
-<th style="text-align: center">描述</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td style="text-align: center">class</td>
-<td style="text-align: center">为html元素定义一个或多个类名（classname）(类名从样式文件引入)</td>
-</tr>
-<tr>
-<td style="text-align: center">id</td>
-<td style="text-align: center">定义元素的唯一id</td>
-</tr>
-<tr>
-<td style="text-align: center">style</td>
-<td style="text-align: center">规定元素的行内样式（inline style）</td>
-</tr>
-<tr>
-<td style="text-align: center">title</td>
-<td style="text-align: center">描述了元素的额外信息 (作为工具条使用)</td>
-</tr>
-</tbody>
-</table>
-
-<blockquote>
-<ul>
-<li>class 属性可以多用 class=&quot; &quot; （引号里面可以填入多个class属性）</li>
-<li>id 属性只能单独设置 id=&quot; &quot;（只能填写一个，多个无效）</li>
-<li>属性和属性值，尽量小写，本来这样做也方便些。</li>
-</ul>
-</blockquote>
-
-<h4 id="toc_1">HTML 水平</h4>
-
-<blockquote>
-<h5 id="toc_2">&lt; hr&gt; 标签在 HTML 页面中创建水平线。如： &lt; p&gt;这是一个段落。&lt; /p&gt; &lt; hr&gt; &lt; p&gt;这是一个段落。</p></h5>
-</blockquote>
-
-<h4 id="toc_3">HTML 折行</h4>
-
-<blockquote>
-<h5 id="toc_4">如果您希望在不产生一个新段落的情况下进行换行（新行），请使用 <br /> 标签：如：&lt; p&gt;这个&lt; br&gt;段落&lt; br&gt;演示了分行的效果&lt; /p&gt;</h5>
-</blockquote>
-
-<h4 id="toc_5">HTML 表格与表头</h4>
-
-<blockquote>
-<h5 id="toc_6">表格由 &lt; table&gt; 标签来定义。每个表格均有若干行（由 &lt; tr&gt; 标签定义），每行被分割为若干单元格（由 &lt; td&gt; 标签定义）。字母 td 指表格数据（table data），即数据单元格的内容。数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等。</h5>
-</blockquote>
-
-<pre><code class="language-text">&lt;table border=&quot;1&quot;&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Header 1&lt;/th&gt;
-        &lt;th&gt;Header 2&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;row 1, cell 1&lt;/td&gt;
-        &lt;td&gt;row 1, cell 2&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;row 2, cell 1&lt;/td&gt;
-        &lt;td&gt;row 2, cell 2&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-</code></pre>
-
-<table border="1">
-    <tr>
-        <th>Header 1</th>
-        <th>Header 2</th>
-    </tr>
-    <tr>
-        <td>row 1, cell 1</td>
-        <td>row 1, cell 2</td>
-    </tr>
-    <tr>
-        <td>row 2, cell 1</td>
-        <td>row 2, cell 2</td>
-    </tr>
-</table>
-
-<p>HTML表格标签</p>
-
-<table>
-<thead>
-<tr>
-<th style="text-align: center">标签</th>
-<th style="text-align: center">描述</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td style="text-align: center">&lt; table&gt;</td>
-<td style="text-align: center">定义表格</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; th&gt;</td>
-<td style="text-align: center">定义表格的表头</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; tr&gt;</td>
-<td style="text-align: center">定义表格的行</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; td&gt;</td>
-<td style="text-align: center">定义表格单元</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; caption&gt;</td>
-<td style="text-align: center">定义表格标题</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; colgroup&gt;</td>
-<td style="text-align: center">定义表格列的组</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; col&gt;</td>
-<td style="text-align: center">定义用于表格列的属性</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; thead&gt;</td>
-<td style="text-align: center">定义表格的页眉</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; tbody&gt;</td>
-<td style="text-align: center">定义表格的主体</td>
-</tr>
-<tr>
-<td style="text-align: center">&lt; tfoot&gt;</td>
-<td style="text-align: center">定义表格的页脚 </td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="toc_7">HTML列表</h4>
-
-<pre><code class="language-text">1.HTML无序列表
-无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。无序列表使用 &lt; ul&gt; 标签
-</code></pre>
-
-<pre><code class="language-text"> &lt;ul&gt;
-&lt;li&gt;Coffee&lt;/li&gt;
-&lt;li&gt;Milk&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
-
-<ul>
-<li>Coffee</li>
-<li>Milk</li>
-</ul>
-
-<pre><code class="language-text">  2.HTML 有序列表
-  同样，有序列表也是一列项目，列表项目使用数字进行标记。有序列表始于
-  &lt;ol&gt; 标签。每个列表项始于 &lt;li&gt; 标签。列表项使用数字来标记。
-</code></pre>
-
-<pre><code class="language-text">&lt;ol&gt;
-&lt;li&gt;Coffee&lt;/li&gt;
-&lt;li&gt;Milk&lt;/li&gt;
-&lt;/ol&gt; 
-</code></pre>
-
-<ol>
-<li>Coffee</li>
-<li>Milk</li>
-</ol>
-
-<pre><code class="language-text"> 3.自定义列表
- 自定义列表不仅仅是一列项目，而是项目及其注释的组合。自定义列表以
-  &lt;dl&gt; 标签开始。每个自定义列表项以 &lt;dt&gt; 开始。每个自定义列表项
-  的定义以 &lt;dd&gt; 开始。
-</code></pre>
-
-<pre><code class="language-text">&lt;dl&gt;
-&lt;dt&gt;Coffee&lt;/dt&gt;
-&lt;dd&gt;- black hot drink&lt;/dd&gt;
-&lt;dd&gt;- white hot drink&lt;/dd&gt;
-&lt;dt&gt;Milk&lt;/dt&gt;
-&lt;dd&gt;- white cold drink&lt;/dd&gt;
-&lt;dd&gt;- red cold drink&lt;/dd&gt;
-&lt;dd&gt;- blue cold drink&lt;/dd&gt;
-&lt;/dl&gt;  
-</code></pre>
-
-<dl>
-<dt>Coffee</dt>
-<dd>- black hot drink</dd>
-<dd>- white hot drink</dd>
-<dt>Milk</dt>
-<dd>- white cold drink</dd>
-<dd>- red cold drink</dd>
-<dd>- blue cold drink</dd>
-</dl> 
-
-<h4 id="toc_8">HTML 区块元素</h4>
-
-<blockquote>
-<h6 id="toc_9">大多数 HTML 元素被定义为块级元素或内联元素。 块级元素在浏览器显示时，通常会以新行来开始（和结束）。</h6>
-
-<h6 id="toc_10">实例: &lt; h1&gt;, &lt; p&gt;, &lt; ul&gt;, &lt; table&gt;，&lt; div&gt;  &lt; div&gt; 元素</h6>
-
-<h5 id="toc_11">&lt; div&gt; 元素</h5>
-
-<h6 id="toc_12">它是块级元素，它可用于组合其他 HTML 元素的容器。&lt; div&gt; 元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。如果与 CSS 一同使用，&lt; div&gt; 元素可用于对大的内容块设置样式属性。&lt; div&gt; 元素的另一个常见的用途是文档布局。它取代了使用表格定义布局的老式方法。使用 &lt; table&gt; 元素进行文档布局不是表格的正确用法。&lt; table&gt; 元素的作用是显示表格化的数据。</h6>
-</blockquote>
-
-<h4 id="toc_13">HTML 内联元素</h4>
-
-<blockquote>
-<h6 id="toc_14">内联元素在显示时通常不会以新行开始。实例: &lt; b&gt;, &lt; td&gt;, &lt; a&gt;, &lt; img&gt;</h6>
-
-<h6 id="toc_15">实例: &lt; h1&gt;, &lt; p&gt;, &lt; ul&gt;, &lt; table&gt;</h6>
-
-<h5 id="toc_16">&lt; span&gt; 元素</h5>
-
-<h6 id="toc_17">HTML &lt; span&gt; 元素是内联元素，可用作文本的容器,&lt; span&gt; 元素也没有特定的含义。当与 CSS 一同使用时，<span> 元素可用于为部分文本设置样式属性。</h6>
-</blockquote>
+<p>created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。<br/>
+mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作。</p>
 
 
 </div>
@@ -419,15 +191,15 @@
   <div class="large-6 columns">
 	<div class="text-left" style="padding:15px 0px;">
 		
-	        <a href="15426083995443.html"  title="Previous Post: 报错：Elements in iteration expect to have 'v-bind:key' directives.">&laquo; 报错：Elements in iteration expect to have 'v-bind:key' directives.</a>
+	        <a href="15452718196856.html"  title="Previous Post: 微信小程序-自检更新方法">&laquo; 微信小程序-自检更新方法</a>
 	    
 	</div>
   </div>
   <div class="large-6 columns">
 	<div class="text-right" style="padding:15px 0px;">
 		
-	        <a href="bindtap-catchtap.html" 
-	        title="Next Post: 点击事件 bindtap事件与catchtap事件">点击事件 bindtap事件与catchtap事件 &raquo;</a>
+	        <a href="15428721356689.html" 
+	        title="Next Post: 3. Position和AnchorPoint的关系">3. Position和AnchorPoint的关系 &raquo;</a>
 	    
 	</div>
   </div>
@@ -440,7 +212,7 @@
 </div>
 <script type="text/javascript">
 	$(function(){
-		var currentURL = '15422622903877.html';
+		var currentURL = '15444196040960.html';
 		$('#side-nav a').each(function(){
 			if($(this).attr('href') == currentURL){
 				$(this).parent().addClass('active');

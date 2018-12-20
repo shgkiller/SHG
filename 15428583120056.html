@@ -55,6 +55,8 @@
         <li><label>Vue学习</label></li>
 
           
+            <li><a title="created和mounted区别？" href="15444196040960.html">created和mounted区别？</a></li>
+          
             <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
           
             <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
@@ -64,6 +66,18 @@
         <li class="divider"></li>
         <li><label>微信小程序</label></li>
 
+          
+            <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
+          
+            <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+          
+            <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+          
+            <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
+          
+            <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+          
+            <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
           
             <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
           
@@ -80,6 +94,8 @@
         <li class="divider"></li>
         <li><label>CoCos2d-X学习</label></li>
 
+          
+            <li><a title="3. Position和AnchorPoint的关系" href="15428721356689.html">3. Position和AnchorPoint的关系</a></li>
           
             <li><a title="2. 浅析Helloword项目" href="15428583120056.html">2. 浅析Helloword项目</a></li>
           
@@ -110,6 +126,8 @@
                     
                       <li class="side-title"><span>Vue学习</span></li>
                         
+                          <li><a title="created和mounted区别？" href="15444196040960.html">created和mounted区别？</a></li>
+                        
                           <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
                         
                           <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
@@ -117,6 +135,18 @@
 
                     
                       <li class="side-title"><span>微信小程序</span></li>
+                        
+                          <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
+                        
+                          <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+                        
+                          <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+                        
+                          <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
+                        
+                          <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+                        
+                          <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
                         
                           <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
                         
@@ -129,6 +159,8 @@
 
                     
                       <li class="side-title"><span>CoCos2d-X学习</span></li>
+                        
+                          <li><a title="3. Position和AnchorPoint的关系" href="15428721356689.html">3. Position和AnchorPoint的关系</a></li>
                         
                           <li><a title="2. 浅析Helloword项目" href="15428583120056.html">2. 浅析Helloword项目</a></li>
                         
@@ -205,9 +237,30 @@
 <ul>
 <li>addChild（Node * child ,int localzOrder, int tag） localzOrder值越大 它的层越靠上，它的默认值是0。 tag是个标记值，可以通过tag获取某个层。</li>
 </ul></li>
-<li><p>精灵类 sprite </p></li>
-<li><p>Node 节点类 </p></li>
-</ol></li>
+<li><p>精灵类 sprite <br/>
+多边形精灵(Polygon Sprite) 也是一个精灵，同样是为了展示一个可以被控制的图像，但是和普通精灵的区别是，普通精灵在绘图处理中被分为了两个三角形，多边形精灵则是被分为了一系列三角形。<br/>
+<img src="media/15428583120056/polygonsprite.png" alt="polygonsprite"/></p></li>
+</ol>
+<p>注意左右两种情况的不同。<br/>
+左侧，是一个典型的精灵绘制时的处理，精灵被处理成一个有两个三角形组成的矩形。<br/>
+右侧，是一个多边形精灵绘制时的处理，精灵被处理成一系列小的三角形。</p>
+<p>显然可以看到，右侧多边形精灵需要绘制的像素数量比左侧精灵需要的像素数量更   小，但是由于划分了多个三角形出现了更多的顶点，由于在现代的图形处理中，一般绘制定点比绘制像素消耗的性能少。所以多边形精灵的性能更好，实际的测试结果也验证了这一点。</p>
+<p>精灵的一些常用属性：</p>
+<blockquote>
+<p>sprite-&gt;setRotation(60.0f); //旋转度<br/>
+sprite-&gt;setScaleX(0.5); //缩放比例<br/>
+sprite-&gt;setSkewX(20.0); //倾斜度<br/>
+sprite-&gt;setContentSize(Size(200, 200)); //设置精灵的大小<br/>
+sprite-&gt;setColor(Color3B(200, 150, 200)); //重新设置图片的颜色<br/>
+sprite-&gt;setOpacity(100);//设置精灵的透明度 范围0-255</p>
+</blockquote>
+<p>13.action<br/>
+MoveTo是移动哪个点的位置<br/>
+auto moveTo = MoveTo::create(2, Vec2(50, 100));<br/>
+sprinte-&gt;runAction(moveTo);<br/>
+MoveBy是以自己为0点 要移动的距离<br/>
+auto moveBy = MoveBy::create(4, Vec2(50, 0));<br/>
+sprinte-&gt;runAction(moveBy);</p></li>
 </ol>
 
 
@@ -220,6 +273,8 @@
   <div class="large-6 columns">
 	<div class="text-left" style="padding:15px 0px;">
 		
+	        <a href="15428721356689.html"  title="Previous Post: 3. Position和AnchorPoint的关系">&laquo; 3. Position和AnchorPoint的关系</a>
+	    
 	</div>
   </div>
   <div class="large-6 columns">

@@ -55,6 +55,8 @@
         <li><label>Vue学习</label></li>
 
           
+            <li><a title="created和mounted区别？" href="15444196040960.html">created和mounted区别？</a></li>
+          
             <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
           
             <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
@@ -64,6 +66,18 @@
         <li class="divider"></li>
         <li><label>微信小程序</label></li>
 
+          
+            <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
+          
+            <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+          
+            <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+          
+            <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
+          
+            <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+          
+            <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
           
             <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
           
@@ -80,6 +94,8 @@
         <li class="divider"></li>
         <li><label>CoCos2d-X学习</label></li>
 
+          
+            <li><a title="3. Position和AnchorPoint的关系" href="15428721356689.html">3. Position和AnchorPoint的关系</a></li>
           
             <li><a title="2. 浅析Helloword项目" href="15428583120056.html">2. 浅析Helloword项目</a></li>
           
@@ -110,6 +126,8 @@
                     
                       <li class="side-title"><span>Vue学习</span></li>
                         
+                          <li><a title="created和mounted区别？" href="15444196040960.html">created和mounted区别？</a></li>
+                        
                           <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
                         
                           <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
@@ -117,6 +135,18 @@
 
                     
                       <li class="side-title"><span>微信小程序</span></li>
+                        
+                          <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
+                        
+                          <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+                        
+                          <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+                        
+                          <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
+                        
+                          <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+                        
+                          <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
                         
                           <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
                         
@@ -129,6 +159,8 @@
 
                     
                       <li class="side-title"><span>CoCos2d-X学习</span></li>
+                        
+                          <li><a title="3. Position和AnchorPoint的关系" href="15428721356689.html">3. Position和AnchorPoint的关系</a></li>
                         
                           <li><a title="2. 浅析Helloword项目" href="15428583120056.html">2. 浅析Helloword项目</a></li>
                         
@@ -148,85 +180,16 @@
 
 	
 		<div class="markdown-body">
-		<h1>Vue.js 监听属性 watch</h1>
+		<h1>created和mounted区别？</h1>
 
-		<h5 id="toc_0">通过watch来相应数据的变化，处理函数</h5>
-
-<blockquote>
-<h5 id="toc_1">目前 我们把它分为普通监听（也叫浅监听）和深度监听</h5>
-
-<ul>
-<li>普通监听就是对变量直接进行监听</li>
-<li>深度监听就是对对象中的变量进行监听</li>
-</ul>
-</blockquote>
-
-<p>例如：</p>
-
-<pre><code class="language-text">
-&lt;template&gt;
-  &lt;div class=&quot;hello&quot;&gt;
-    &lt;input class=&quot;colortext&quot; text type=&quot;text&quot; v-model=&quot;demo&quot;&gt;&lt;br&gt;
-    {{value}}&lt;br&gt;
-    &lt;input class=&quot;colortext&quot; text type=&quot;text&quot; v-model=&quot;obj.name&quot;&gt;&lt;br&gt;
-   {{value1}}&lt;br&gt;
-   {{value2}}&lt;br&gt;
-   {{value5}}&lt;br&gt;
-    &lt;input class=&quot;colortext&quot; text type=&quot;text&quot; v-model=&quot;num&quot;&gt;&lt;br&gt;
-   {{value3}}&lt;br&gt;
-   {{value4}}&lt;br&gt;
-   
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-export default {
-  name: &#39;HelloWorld&#39;,
-  data () {
-    return {
-      msg: &#39;Welcome to Your Vue.js App&#39;,
-      demo: &#39;&#39;,
-      value: &#39;&#39;,
-      num:1,
-      obj:{
-          name:&#39;三儿&#39;,
-          age:&#39;21&#39;,
-          sex:&#39;女&#39; 
-        }
-    }
-  },
-  watch:{
-    num(val, oldVal){
-    //普通的watch监听 
-    console.log(&quot;num: &quot;+val, oldVal);
-     this.value3=val;
-     this.value4=oldVal;
-    },
-    obj:{
-    //深度监听，可监听到对象、数组的变化 此时val和oldVal值一样 如果需求要用到oldVal，须要用到 计算属性的方法computed，可得到上次oldVal的值
-      handler(val, oldVal){
-      console.log(&quot;obj.name: &quot;+val.name, oldVal.name);
-      this.value1=val.name;
-      this.value2=oldVal.name;
-      },
-      deep:true
-    },
-    //深度监听时需用到oldVal时用，上次的值
-    zhibianhua(newval,oldVal) {
-      this.value5=oldVal;
-    }
-  },
-  computed: {
-    zhibianhua: function () {
-      return this.obj.name
-    }
-  }
-}
-
-</code></pre>
+		<p>created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。<br/>
+mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作。</p>
 
 
 		</div>
+	
+
+ 
 	
 
  

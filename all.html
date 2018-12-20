@@ -55,6 +55,8 @@
         <li><label>Vue学习</label></li>
 
           
+            <li><a title="created和mounted区别？" href="15444196040960.html">created和mounted区别？</a></li>
+          
             <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
           
             <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
@@ -64,6 +66,18 @@
         <li class="divider"></li>
         <li><label>微信小程序</label></li>
 
+          
+            <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
+          
+            <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+          
+            <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+          
+            <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
+          
+            <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+          
+            <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
           
             <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
           
@@ -80,6 +94,8 @@
         <li class="divider"></li>
         <li><label>CoCos2d-X学习</label></li>
 
+          
+            <li><a title="3. Position和AnchorPoint的关系" href="15428721356689.html">3. Position和AnchorPoint的关系</a></li>
           
             <li><a title="2. 浅析Helloword项目" href="15428583120056.html">2. 浅析Helloword项目</a></li>
           
@@ -110,6 +126,8 @@
                     
                       <li class="side-title"><span>Vue学习</span></li>
                         
+                          <li><a title="created和mounted区别？" href="15444196040960.html">created和mounted区别？</a></li>
+                        
                           <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
                         
                           <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
@@ -117,6 +135,18 @@
 
                     
                       <li class="side-title"><span>微信小程序</span></li>
+                        
+                          <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
+                        
+                          <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+                        
+                          <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+                        
+                          <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
+                        
+                          <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+                        
+                          <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
                         
                           <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
                         
@@ -129,6 +159,8 @@
 
                     
                       <li class="side-title"><span>CoCos2d-X学习</span></li>
+                        
+                          <li><a title="3. Position和AnchorPoint的关系" href="15428721356689.html">3. Position和AnchorPoint的关系</a></li>
                         
                           <li><a title="2. 浅析Helloword项目" href="15428583120056.html">2. 浅析Helloword项目</a></li>
                         
@@ -148,74 +180,68 @@
 
 	
 		<div class="markdown-body">
-		<h1>2. 浅析Helloword项目</h1>
+		<h1>微信小程序-跑马灯</h1>
 
-		<p>项目结构：C++工程结构<br/>
-<img src="media/15428583120056/865AF051-A18D-460C-9105-586CA7227134.png" alt="865AF051-A18D-460C-9105-586CA7227134"/></p>
+		<pre><code class="language-text"> 在wxml页面加如下代码：
+       
+&lt;view class=&#39;scroll_view_border&#39;&gt;
+&lt;view class=&quot;srcoll_view&quot; bindtap=&quot;textclick&quot;&gt;这武器那都好，就是不吃药只能战斗15秒，15秒内不是你死就是我亡，这才是90级史诗该有的王者风范!&lt;/view&gt;
 
-<ol>
-<li><p><strong>Classes文件夹</strong></p>
-<p>存放C++文件，定义游戏的所有文件</p></li>
-<li><p><strong>Resources文件夹</strong><br/>
-主要存放 图片、音频、动画、字体等文件</p></li>
-<li><p><strong>Frameworkers</strong><br/>
-存放库文件，有ios用的 和 cocos2d-x用的库文件，三方文件</p></li>
-<li><p><strong>cocos2d_libs.scodeproj 工程文件</strong><br/>
-它包含了cocos2d-x引擎的源码,它是以类库的形式引入到了ios的工程里 </p></li>
-<li><p><strong>cocos2d-x的声明周期</strong><br/>
-它的生命周期类似于ios oc开发 </p>
-<ul>
-<li>applicationDidFinishLaunching  程序启动入口</li>
-<li>applicationDidEnterBackground  程序进入后台</li>
-<li>applicationWillEnterForeground 程序将要进入前台</li>
-</ul></li>
-<li><p><strong>部分代码含义</strong></p>
-<ol>
-<li><p>auto director = Director::getInstance();</p>
-<ul>
-<li>导演类 以单例的形式创建和调用</li>
-</ul></li>
-<li><p>auto glview = director-&gt;getOpenGLView();</p>
-<ul>
-<li>获取opengl视图<br/></li>
-</ul></li>
-<li><p>director-&gt;setDisplayStats(true); 设置是否显示帧率信息</p>
-<ul>
-<li>GL verts:    opengl 中渲染的顶点数</li>
-<li>GL calls:    opengl 中渲染的批次</li>
-<li>xx/xx        帧率/ 每帧运行的秒数</li>
-</ul></li>
-<li><p>director-&gt;setAnimationInterval(1.0f / 60);  设置帧率大小。<br/>
-引擎的默认设置每秒钟60帧，也就是屏幕每秒钟会刷新重绘60次，它基本满足人眼每秒刷新的最高频率的一个完美运行状态，超出60帧，对人的观看 意义不大，感官上基本识别不出来了已经。</p></li>
-<li><p>auto scene = HelloWorld::createScene();</p>
-<ul>
-<li>创建一个场景对象</li>
-</ul></li>
-<li><p>director-&gt;runWithScene(scene);</p>
-<ul>
-<li>运行启动场景 </li>
-</ul></li>
-<li><p>getVisiblesize();</p>
-<ul>
-<li>获取可视区域的大小</li>
-</ul></li>
-<li><p>getWinSize();</p>
-<ul>
-<li>获取窗口的大小</li>
-</ul></li>
-<li><p>场景scene类 它就是一个层的容器 它是抽象出来的一个类</p></li>
-<li><p>layer类  </p></li>
-<li><p>一个场景中可能会有多个层 或者一个层，先添加的层会在后添加的层的下面 </p>
-<ul>
-<li>addChild（Node * child ,int localzOrder, int tag） localzOrder值越大 它的层越靠上，它的默认值是0。 tag是个标记值，可以通过tag获取某个层。</li>
-</ul></li>
-<li><p>精灵类 sprite </p></li>
-<li><p>Node 节点类 </p></li>
-</ol></li>
-</ol>
+&lt;/view&gt;
+
+在wxss页面加如下代码：
+
+.srcoll_view{
+position: absolute;
+top:0rpx;
+height: 100rpx;
+font-size: 30rpx;
+white-space: nowrap;
+line-height: 100rpx;
+color: #00bff3;
+animation:myfirst 20s linear infinite;
+}
+@keyframes myfirst
+{
+  0% {margin-left:750rpx;}
+  100% {margin-left:-1500rpx;}
+}
+.scroll_view_border{
+position: relative;
+width: 100%;
+background: rgba(0, 0, 0, 0.2);
+height: 100rpx;
+overflow: hidden;
+}
+
+</code></pre>
 
 
 		</div>
+	
+
+ 
+	
+
+ 
+	
+
+ 
+	
+
+ 
+	
+
+ 
+	
+
+ 
+	
+
+ 
+	
+
+ 
 	
 
  

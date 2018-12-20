@@ -55,6 +55,8 @@
         <li><label>Vue学习</label></li>
 
           
+            <li><a title="created和mounted区别？" href="15444196040960.html">created和mounted区别？</a></li>
+          
             <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
           
             <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
@@ -64,6 +66,18 @@
         <li class="divider"></li>
         <li><label>微信小程序</label></li>
 
+          
+            <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
+          
+            <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+          
+            <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+          
+            <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
+          
+            <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+          
+            <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
           
             <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
           
@@ -80,6 +94,8 @@
         <li class="divider"></li>
         <li><label>CoCos2d-X学习</label></li>
 
+          
+            <li><a title="3. Position和AnchorPoint的关系" href="15428721356689.html">3. Position和AnchorPoint的关系</a></li>
           
             <li><a title="2. 浅析Helloword项目" href="15428583120056.html">2. 浅析Helloword项目</a></li>
           
@@ -110,6 +126,8 @@
                     
                       <li class="side-title"><span>Vue学习</span></li>
                         
+                          <li><a title="created和mounted区别？" href="15444196040960.html">created和mounted区别？</a></li>
+                        
                           <li><a title="Vue.js 监听属性 watch" href="15426919106501.html">Vue.js 监听属性 watch</a></li>
                         
                           <li><a title="报错：Elements in iteration expect to have 'v-bind:key' directives." href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></li>
@@ -117,6 +135,18 @@
 
                     
                       <li class="side-title"><span>微信小程序</span></li>
+                        
+                          <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
+                        
+                          <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+                        
+                          <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+                        
+                          <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
+                        
+                          <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+                        
+                          <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
                         
                           <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
                         
@@ -129,6 +159,8 @@
 
                     
                       <li class="side-title"><span>CoCos2d-X学习</span></li>
+                        
+                          <li><a title="3. Position和AnchorPoint的关系" href="15428721356689.html">3. Position和AnchorPoint的关系</a></li>
                         
                           <li><a title="2. 浅析Helloword项目" href="15428583120056.html">2. 浅析Helloword项目</a></li>
                         
@@ -148,74 +180,66 @@
 
 	
 		<div class="markdown-body">
-		<h1>2. 浅析Helloword项目</h1>
+		<h1>3. Position和AnchorPoint的关系</h1>
 
-		<p>项目结构：C++工程结构<br/>
-<img src="media/15428583120056/865AF051-A18D-460C-9105-586CA7227134.png" alt="865AF051-A18D-460C-9105-586CA7227134"/></p>
+		<p><strong>第一步</strong>，我们要知道cocos2d-x中绘图坐标系是以左下角为原点，向上为y轴正方向，向右为x轴正方向。如下图:<br/>
+<img src="media/15428721356689/20140731235055437.jpg" alt="20140731235055437"/></p>
 
-<ol>
-<li><p><strong>Classes文件夹</strong></p>
-<p>存放C++文件，定义游戏的所有文件</p></li>
-<li><p><strong>Resources文件夹</strong><br/>
-主要存放 图片、音频、动画、字体等文件</p></li>
-<li><p><strong>Frameworkers</strong><br/>
-存放库文件，有ios用的 和 cocos2d-x用的库文件，三方文件</p></li>
-<li><p><strong>cocos2d_libs.scodeproj 工程文件</strong><br/>
-它包含了cocos2d-x引擎的源码,它是以类库的形式引入到了ios的工程里 </p></li>
-<li><p><strong>cocos2d-x的声明周期</strong><br/>
-它的生命周期类似于ios oc开发 </p>
-<ul>
-<li>applicationDidFinishLaunching  程序启动入口</li>
-<li>applicationDidEnterBackground  程序进入后台</li>
-<li>applicationWillEnterForeground 程序将要进入前台</li>
-</ul></li>
-<li><p><strong>部分代码含义</strong></p>
-<ol>
-<li><p>auto director = Director::getInstance();</p>
-<ul>
-<li>导演类 以单例的形式创建和调用</li>
-</ul></li>
-<li><p>auto glview = director-&gt;getOpenGLView();</p>
-<ul>
-<li>获取opengl视图<br/></li>
-</ul></li>
-<li><p>director-&gt;setDisplayStats(true); 设置是否显示帧率信息</p>
-<ul>
-<li>GL verts:    opengl 中渲染的顶点数</li>
-<li>GL calls:    opengl 中渲染的批次</li>
-<li>xx/xx        帧率/ 每帧运行的秒数</li>
-</ul></li>
-<li><p>director-&gt;setAnimationInterval(1.0f / 60);  设置帧率大小。<br/>
-引擎的默认设置每秒钟60帧，也就是屏幕每秒钟会刷新重绘60次，它基本满足人眼每秒刷新的最高频率的一个完美运行状态，超出60帧，对人的观看 意义不大，感官上基本识别不出来了已经。</p></li>
-<li><p>auto scene = HelloWorld::createScene();</p>
-<ul>
-<li>创建一个场景对象</li>
-</ul></li>
-<li><p>director-&gt;runWithScene(scene);</p>
-<ul>
-<li>运行启动场景 </li>
-</ul></li>
-<li><p>getVisiblesize();</p>
-<ul>
-<li>获取可视区域的大小</li>
-</ul></li>
-<li><p>getWinSize();</p>
-<ul>
-<li>获取窗口的大小</li>
-</ul></li>
-<li><p>场景scene类 它就是一个层的容器 它是抽象出来的一个类</p></li>
-<li><p>layer类  </p></li>
-<li><p>一个场景中可能会有多个层 或者一个层，先添加的层会在后添加的层的下面 </p>
-<ul>
-<li>addChild（Node * child ,int localzOrder, int tag） localzOrder值越大 它的层越靠上，它的默认值是0。 tag是个标记值，可以通过tag获取某个层。</li>
-</ul></li>
-<li><p>精灵类 sprite </p></li>
-<li><p>Node 节点类 </p></li>
-</ol></li>
-</ol>
+<p><strong>第二步</strong>，我们要了解AnchorPoint.x和AnchorPoint.y分别是相对于所绘图的最左边width和最下边height的比例，所以AnchorPoint.x和AnchorPoint.y只能在0~1之间取值。</p>
+
+<p><strong>第三步</strong>，我们要明确AnchorPoint.x的值是相对于矩形绘图最左边距离的比例，AnchorPoint.y的值是相对于矩形绘图下边距离的比例。如下图：<br/>
+<img src="media/15428721356689/20140731235454088.jpg" alt="20140731235454088"/></p>
+
+<p><strong>第四步</strong>，当我们设定了精灵的Position(a,b)时，精灵在屏幕上的绘制要参考AnchorPoint的值。这里要假设精灵的Position(a,b)是固定的，所以此时要AnchorPoint为中心来绘制图形。由于AnchorPoint的点和Position的点同一个点，不同的是AnchorPoint点的值是比例值，在第三步中有讲解。所以，绘制图形的思路就是在固定Position点上，根据AnchorPoint不同的比例值，上下左右移动图形来达到比例值，最终得出图形。注意移动x、y的比例分别是相对于最左边和最下边的。</p>
+
+<p><strong>第五步</strong>，我们根据AnchorPoint不同比例值给出具体的绘图，这里Position(a,b)是固定的。<br/>
+1.AnchorPoint(0,0),由于x=0,y=0,那么点到最左边的距离比例为0，点到最下边的距离比例为0，即绘制点在图形的左下角。如下图：<br/>
+<img src="media/15428721356689/20140731235556644.jpg" alt="20140731235556644"/></p>
+
+<p>在cocos2d-x代码如代码1，绘制效果如效果1。为了使绘制的图形显示得更具体，我们设置Positon(400,100)。<br/>
+代码1：</p>
+
+<pre><code class="language-text">    Sprite*testSprite=Sprite::create(&quot;1.jpg&quot;);
+    testSprite-&gt;setPosition(400,100);
+    testSprite-&gt;setAnchorPoint(Vec2(0,0));
+    this-&gt;addChild(testSprite);
+</code></pre>
+
+<p>效果1：<img src="media/15428721356689/20140731235651822.jpg" alt="20140731235651822"/></p>
+
+<p>2.AnchorPoint(0.5,0.5),由于x=0,y=0,那么点到最左边的距离比例为0.5，点到最下边的距离比例为0.5，即绘制点在图形的中心，如下图：<img src="media/15428721356689/20140731235501109.jpg" alt="20140731235501109"/></p>
+
+<p>在cocos2d-x代码如代码2，绘制效果如效果2。为了使绘制的图形显示得更具体，我们设置Positon(400,100)。<br/>
+代码2：   </p>
+
+<pre><code class="language-text">        Sprite*testSprite=Sprite::create(&quot;1.jpg&quot;);
+        testSprite-&gt;setPosition(400,100);
+        testSprite-&gt;setAnchorPoint(Vec2(0.5,0.5));
+        this-&gt;addChild(testSprite);
+</code></pre>
+
+<p>效果2：<img src="media/15428721356689/20140731235811678.jpg" alt="20140731235811678"/></p>
+
+<p>3.AnchorPoint(1,1),由于x=1,y=1,那么点到最左边的距离比例为1，点到最下边的距离比例为1，即绘制点在图形的右上角，如下图：<img src="media/15428721356689/20140731235608171.jpg" alt="20140731235608171"/></p>
+
+<p>在cocos2d-x代码如代码3，绘制效果如效果3。为了使绘制的图形显示得更具体，我们设置Positon(400,100)。<br/>
+代码3：</p>
+
+<pre><code class="language-text">        Sprite*testSprite=Sprite::create(&quot;1.jpg&quot;);
+       testSprite-&gt;setPosition(400,100);
+       testSprite-&gt;setAnchorPoint(Vec2(1,1));
+       this-&gt;addChild(testSprite);
+</code></pre>
+
+<p>效果3：<img src="media/15428721356689/20140731235920115.jpg" alt="20140731235920115"/></p>
+
+<p>以上讲解了三种即特殊又普通的比例，相信大家看完后就可以理解Position和AnchorPoint的关系。其他AnchorPoint值的推理如上。</p>
 
 
 		</div>
+	
+
+ 
 	
 
  
