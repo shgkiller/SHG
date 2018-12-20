@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  Archives - 时光宝盒
+  微信小程序布局-列表布局 - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -202,314 +202,164 @@
             <div class="large-9 medium-9 columns">
 
  <div class="markdown-body">
-	
-		 
-		  	<h2>2018</h2>
-		
-		
-			<div>
-				<h3><a href="15452905153597.html">iOS开发建项-屏幕适配</a></h3>
-				<p>
-					<time datetime="2018-12-20T15:21:55+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='iOS%E5%BC%80%E5%8F%91.html'>iOS开发</a>&nbsp;
-				   
-				  </span>
+<h1>微信小程序布局-列表布局</h1>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452900960303.html">iOS开发建项-创建.pch文件</a></h3>
-				<p>
-					<time datetime="2018-12-20T15:14:56+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='iOS%E5%BC%80%E5%8F%91.html'>iOS开发</a>&nbsp;
-				   
-				  </span>
+<h4 id="toc_0">在创建的home.wxml文件里写入如下布局</h4>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452875829996.html">iOS开发建项-使用三方管理工具cocopods集成</a></h3>
-				<p>
-					<time datetime="2018-12-20T14:33:02+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='iOS%E5%BC%80%E5%8F%91.html'>iOS开发</a>&nbsp;
-				   
-				  </span>
+<pre><code class="language-text">&lt;view class=&#39;mh-contentview&#39;&gt;
+  &lt;image wx:if=&#39;{{nodata}}&#39; class=&#39;mh-nodata&#39; src=&quot;../../images/nodata.png&quot; /&gt;
+  &lt;scroll-view scroll-y style=&quot;height: {{screeheight}}px;&quot; lower-threshold=&quot;10&quot; bindscrolltolower=&quot;shanglaloading&quot; &gt;
+    &lt;view class=&quot;mh-cell&quot; wx:for=&quot;{{lessonListData}}&quot; wx:key=&quot;{{index}}&quot; wx:for-item=&quot;item&quot; data-index=&quot;{{index}}&quot; bindtap=&#39;lessonDetailPress&#39;&gt;
+    ................
+    &lt;/view&gt;
+  &lt;/scroll-view&gt;
+&lt;/view&gt;
+</code></pre>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452853184215.html">微信小程序布局-列表布局</a></h3>
-				<p>
-					<time datetime="2018-12-20T13:55:18+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+<h4 id="toc_1">在创建的home.wxss文件里写入如下布局</h4>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452844825929.html">微信小程序-跑马灯</a></h3>
-				<p>
-					<time datetime="2018-12-20T13:41:22+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+<pre><code class="language-text">page {
+  background-color: #1b1b40;
+  /* background-color: #9baf29; */
+}
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452740757489.html">微信小程序-js页面相关常用方法</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:47:55+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+.mh-contentview {
+  display: flex;
+  /* margin-top: 15px; */
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452738125591.html">微信小程序建项-轮播</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:43:32+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+}
+.viewback{
+  height: 100px;
+  width: 100%;
+  background-color: red;
+  /* margin-top: 5px; */
+}
+.mh-nodata {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 149px;
+  height: 185px;
+  top: 81px;
+}
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452730253716.html">微信小程序布局-网格布局</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:30:25+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+.mh-cell {
+  background: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20rpx;
+  /* width: 96%; */
+  height: 100px;
+  border-radius: 5px;
+}
+/* .mh-cell:last-child{
+   background: #fff;
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452720884943.html">微信小程序-相关属性方法</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:14:48+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 100px;
+  border-radius: 5px;
+}  */
+.mh-cell .notifyImage {
+  margin-left: 8px;
+  margin-top: 8px;
+  width: 84px;
+  height: 84px;
+   border-radius: 5px;
+}
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452718196856.html">微信小程序-自检更新方法</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:10:19+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+.mh-cell .hx {
+  display: flex;
+  flex-direction: row;
+}
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15444196040960.html">created和mounted区别？</a></h3>
-				<p>
-					<time datetime="2018-12-10T13:26:44+08:00" pubdate><span class='month'>12月</span> <span class='day'>10</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Vue%E5%AD%A6%E4%B9%A0.html'>Vue学习</a>&nbsp;
-				   
-				  </span>
+.mh-cell .sx {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15428721356689.html">3. Position和AnchorPoint的关系</a></h3>
-				<p>
-					<time datetime="2018-11-22T15:35:35+08:00" pubdate><span class='month'>11月</span> <span class='day'>22</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CoCos2d-X%E5%AD%A6%E4%B9%A0.html'>CoCos2d-X学习</a>&nbsp;
-				   
-				  </span>
+.mh-cell .textsub1 {
+  margin-top: 5px;
+  margin-left: 10px;
+  
+}
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15428583120056.html">2. 浅析Helloword项目</a></h3>
-				<p>
-					<time datetime="2018-11-22T11:45:12+08:00" pubdate><span class='month'>11月</span> <span class='day'>22</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CoCos2d-X%E5%AD%A6%E4%B9%A0.html'>CoCos2d-X学习</a>&nbsp;
-				   
-				  </span>
+.mh-cell .textsub2 {
+  /* margin-top: 20px; */
+  margin-left: 10px;
+}
+.mh-cell .textsub3 {
+  /* margin-top: 20px; */
+  margin-left: 5px;
+}
+.hengxiang2 {
+   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hengxiang3 {
+   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.twohang{
+   display: -webkit-box;
+  align-content: center;
+  overflow: hidden;
+  text-overflow: -o-ellipsis-lastline;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+</code></pre>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15428544691205.html">1. Cocos2d-x如何创建项目</a></h3>
-				<p>
-					<time datetime="2018-11-22T10:41:09+08:00" pubdate><span class='month'>11月</span> <span class='day'>22</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CoCos2d-X%E5%AD%A6%E4%B9%A0.html'>CoCos2d-X学习</a>&nbsp;
-				   
-				  </span>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15428488942409.html">关于层</a></h3>
-				<p>
-					<time datetime="2018-11-22T09:08:14+08:00" pubdate><span class='month'>11月</span> <span class='day'>22</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='TiledMap%20%E5%AD%A6%E4%B9%A0.html'>TiledMap 学习</a>&nbsp;
-				   
-				  </span>
+</div>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15426919106501.html">Vue.js 监听属性 watch</a></h3>
-				<p>
-					<time datetime="2018-11-20T13:31:50+08:00" pubdate><span class='month'>11月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Vue%E5%AD%A6%E4%B9%A0.html'>Vue学习</a>&nbsp;
-				   
-				  </span>
+<br /><br />
+<hr />
 
-				</p>
-			</div>
- 	
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
 		
+	        <a href="15422622903877.html"  title="Previous Post: HTML基础">&laquo; HTML基础</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
 		
-			<div>
-				<h3><a href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></h3>
-				<p>
-					<time datetime="2018-11-19T14:19:59+08:00" pubdate><span class='month'>11月</span> <span class='day'>19</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Vue%E5%AD%A6%E4%B9%A0.html'>Vue学习</a>&nbsp;
-				   
-				  </span>
+	        <a href="15452730253716.html" 
+	        title="Next Post: 微信小程序布局-网格布局">微信小程序布局-网格布局 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15422622903877.html">HTML基础</a></h3>
-				<p>
-					<time datetime="2018-11-15T14:11:30+08:00" pubdate><span class='month'>11月</span> <span class='day'>15</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='HTML%E5%AD%A6%E4%B9%A0.html'>HTML学习</a>&nbsp;
-				   
-				  </span>
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></h3>
-				<p>
-					<time datetime="2018-11-09T11:55:45+08:00" pubdate><span class='month'>11月</span> <span class='day'>09</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	 
-</div>  
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '15452853184215.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
 </div></div>
 
 

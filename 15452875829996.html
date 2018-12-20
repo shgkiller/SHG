@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  Archives - 时光宝盒
+  iOS开发建项-使用三方管理工具cocopods集成 - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -202,314 +202,187 @@
             <div class="large-9 medium-9 columns">
 
  <div class="markdown-body">
-	
-		 
-		  	<h2>2018</h2>
-		
-		
-			<div>
-				<h3><a href="15452905153597.html">iOS开发建项-屏幕适配</a></h3>
-				<p>
-					<time datetime="2018-12-20T15:21:55+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='iOS%E5%BC%80%E5%8F%91.html'>iOS开发</a>&nbsp;
-				   
-				  </span>
+<h1>iOS开发建项-使用三方管理工具cocopods集成</h1>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452900960303.html">iOS开发建项-创建.pch文件</a></h3>
-				<p>
-					<time datetime="2018-12-20T15:14:56+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='iOS%E5%BC%80%E5%8F%91.html'>iOS开发</a>&nbsp;
-				   
-				  </span>
+<p>我们都用哪些三方呢？例如：</p>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452875829996.html">iOS开发建项-使用三方管理工具cocopods集成</a></h3>
-				<p>
-					<time datetime="2018-12-20T14:33:02+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='iOS%E5%BC%80%E5%8F%91.html'>iOS开发</a>&nbsp;
-				   
-				  </span>
+<ol>
+<li>--极光的统计：可查看闪退日志（必须要有首先就要集成）</li>
+<li>--可能用到的推送，可用极光的推送</li>
+<li>--网络请求 AFNetWorking</li>
+<li>--刷新 MJRefresh</li>
+<li>--图片加载 SDWebImage</li>
+<li>--用于加载的loading和提示框 MBProgressHUD</li>
+<li>--用于解决输入框被键盘遮挡的问题 IQKeyBoardManager</li>
+<li>--用于布局约束 Masonry</li>
+<li>--加在程序中,解决NUll问题 nullSafe.m</li>
+</ol>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452853184215.html">微信小程序布局-列表布局</a></h3>
-				<p>
-					<time datetime="2018-12-20T13:55:18+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+<pre><code class="language-text"> 使用三方管理工具cocoapods
+1、Ruby环境搭建
+查看下当前ruby版本：打开终端输入 ruby -v
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452844825929.html">微信小程序-跑马灯</a></h3>
-				<p>
-					<time datetime="2018-12-20T13:41:22+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+如果需要更新，进行如下操作更改Ruby镜像：
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452740757489.html">微信小程序-js页面相关常用方法</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:47:55+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+gem sources --remove https://rubygems.org/ 
+gem sources -a https://gems.ruby-china.com/
+gem sources -l  （用来检查使用替换镜像位置成功与否）
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452738125591.html">微信小程序建项-轮播</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:43:32+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+最后 输入  rvm install 2.2.4  更新ruby
+</code></pre>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452730253716.html">微信小程序布局-网格布局</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:30:25+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+<pre><code class="language-text">2、下载安装CocoaPods
+终端输入：sudo gem install cocoapods 
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452720884943.html">微信小程序-相关属性方法</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:14:48+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+如果升级系统和xcode10 需要更新cocoapods(命令行执行: xcode-select --install)
+然后在进行以下操作
+不执行该命令报错如下：
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15452718196856.html">微信小程序-自检更新方法</a></h3>
-				<p>
-					<time datetime="2018-12-20T10:10:19+08:00" pubdate><span class='month'>12月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
+pod --version
+ 
+/Library/Ruby/Gems/2.3.0/gems/cocoapods-1.5.3/lib/cocoapods/command.rb:118:in `git_version&#39;: Failed to extract git version from `git --version` (&quot;xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun\n&quot;) (RuntimeError)
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15444196040960.html">created和mounted区别？</a></h3>
-				<p>
-					<time datetime="2018-12-10T13:26:44+08:00" pubdate><span class='month'>12月</span> <span class='day'>10</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Vue%E5%AD%A6%E4%B9%A0.html'>Vue学习</a>&nbsp;
-				   
-				  </span>
+from /Library/Ruby/Gems/2.3.0/gems/cocoapods-1.5.3/lib/cocoapods/command.rb:130:in `verify_minimum_git_version!&#39;
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15428721356689.html">3. Position和AnchorPoint的关系</a></h3>
-				<p>
-					<time datetime="2018-11-22T15:35:35+08:00" pubdate><span class='month'>11月</span> <span class='day'>22</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CoCos2d-X%E5%AD%A6%E4%B9%A0.html'>CoCos2d-X学习</a>&nbsp;
-				   
-				  </span>
+from /Library/Ruby/Gems/2.3.0/gems/cocoapods-1.5.3/lib/cocoapods/command.rb:49:in `run&#39;
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15428583120056.html">2. 浅析Helloword项目</a></h3>
-				<p>
-					<time datetime="2018-11-22T11:45:12+08:00" pubdate><span class='month'>11月</span> <span class='day'>22</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CoCos2d-X%E5%AD%A6%E4%B9%A0.html'>CoCos2d-X学习</a>&nbsp;
-				   
-				  </span>
+from /Library/Ruby/Gems/2.3.0/gems/cocoapods-1.5.3/bin/pod:55:in `&lt;top (required)&gt;&#39;
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15428544691205.html">1. Cocos2d-x如何创建项目</a></h3>
-				<p>
-					<time datetime="2018-11-22T10:41:09+08:00" pubdate><span class='month'>11月</span> <span class='day'>22</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CoCos2d-X%E5%AD%A6%E4%B9%A0.html'>CoCos2d-X学习</a>&nbsp;
-				   
-				  </span>
+from /usr/local/bin/pod:23:in `load&#39;
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15428488942409.html">关于层</a></h3>
-				<p>
-					<time datetime="2018-11-22T09:08:14+08:00" pubdate><span class='month'>11月</span> <span class='day'>22</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='TiledMap%20%E5%AD%A6%E4%B9%A0.html'>TiledMap 学习</a>&nbsp;
-				   
-				  </span>
+from /usr/local/bin/pod:23:in `&lt;main&gt;&#39;
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15426919106501.html">Vue.js 监听属性 watch</a></h3>
-				<p>
-					<time datetime="2018-11-20T13:31:50+08:00" pubdate><span class='month'>11月</span> <span class='day'>20</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Vue%E5%AD%A6%E4%B9%A0.html'>Vue学习</a>&nbsp;
-				   
-				  </span>
+</code></pre>
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15426083995443.html">报错：Elements in iteration expect to have 'v-bind:key' directives.</a></h3>
-				<p>
-					<time datetime="2018-11-19T14:19:59+08:00" pubdate><span class='month'>11月</span> <span class='day'>19</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Vue%E5%AD%A6%E4%B9%A0.html'>Vue学习</a>&nbsp;
-				   
-				  </span>
+<pre><code class="language-text">cocoapods 安装或更新结束之后：
+终端cd 到自己的项目文件下Create a Podfile
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="15422622903877.html">HTML基础</a></h3>
-				<p>
-					<time datetime="2018-11-15T14:11:30+08:00" pubdate><span class='month'>11月</span> <span class='day'>15</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='HTML%E5%AD%A6%E4%B9%A0.html'>HTML学习</a>&nbsp;
-				   
-				  </span>
+终端输入touch Podfile
+       open -a Xcode Podfile
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></h3>
-				<p>
-					<time datetime="2018-11-09T11:55:45+08:00" pubdate><span class='month'>11月</span> <span class='day'>09</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F.html'>微信小程序</a>&nbsp;
-				   
-				  </span>
 
-				</p>
-			</div>
- 	 
-</div>  
+写上如下内容：
+target &#39;MyApp的名’ do
+  pod &#39;AFNetworking&#39;, &#39;~&gt; 3.1’
+end
+
+执行 pod install 就OK了
+
+查询三方版本可用 pod search afnetworking  （不区分大小写）
+第一次安装完pod 进行搜索需要多等一段时间，
+会卡在Creating search index for spec repo &#39;master&#39;..    
+
+CocoaPods的基本安装及使用都详细的说明了，
+当需要同时导入多个第三方时候怎么办 ？
+这就需要修改Podfile了，就是用vim编辑的那个保存在项目根目录中的文件，
+修改完了Podfile文件，需要重新执行一次pod install命令。
+
+</code></pre>
+
+<pre><code class="language-text">target &#39;myApp’ do
+pod &#39;AFNetworking&#39;, &#39;~&gt; 3.1’
+pod &#39;MJRefresh&#39;, &#39;~&gt; 3.1.15.1&#39;
+pod &#39;SDWebImage&#39;, &#39;~&gt; 4.2.2&#39;
+pod &#39;MBProgressHUD&#39;, &#39;~&gt; 1.1.0&#39;
+pod &#39;IQKeyboardManager&#39;, &#39;~&gt; 5.0.7&#39;
+pod &#39;Masonry&#39;, &#39;~&gt; 1.1.0&#39;
+pod &#39;NullSafe&#39;, &#39;~&gt; 1.2.3&#39;
+pod &#39;CYLTabBarController&#39;, &#39;~&gt; 1.17.4&#39;
+pod &#39;SDCycleScrollView&#39;, &#39;~&gt; 1.75&#39;
+pod &#39;MJExtension&#39;, &#39;~&gt; 3.0.13&#39;
+pod &#39;FMDB&#39;, &#39;~&gt; 2.7.2&#39;
+pod &#39;SDAutoLayout&#39;, &#39;~&gt; 2.2.0&#39;
+end
+</code></pre>
+
+<h5 id="toc_0">Podfile 如上简单的写法 会报警告 默认platform：iOS9</h5>
+
+<blockquote>
+<p>The Podfile is a specification that describes the dependencies of the targets of one or more Xcode projects.</p>
+</blockquote>
+
+<p>A Podfile can be very simple:</p>
+
+<pre><code class="language-text">target &#39;MyApp&#39;
+pod &#39;AFNetworking&#39;, &#39;~&gt; 1.0&#39;
+</code></pre>
+
+<p>An example of a more complex Podfile can be:</p>
+
+<pre><code class="language-text">platform :ios, &#39;9.0&#39;
+inhibit_all_warnings!
+target &#39;MyApp&#39; do
+  pod &#39;ObjectiveSugar&#39;, &#39;~&gt; 0.5&#39;
+  target &quot;MyAppTests&quot; do
+    inherit! :search_paths
+    pod &#39;OCMock&#39;, &#39;~&gt; 2.0.1&#39;
+  end
+end
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    puts &quot;#{target.name}&quot;
+  end
+end
+</code></pre>
+
+<p>参考如下：</p>
+
+<pre><code class="language-text"> iOS安装CocoaPods详细过程
+ 请查看:(http://www.jianshu.com/p/9e4e36ba8574)
+ 
+ cocoapods报错问题You need at least git version 1.8.5 to use CocoaPods
+ 请查看:(http://www.jianshu.com/p/a1ab3b291f55)
+ 
+ 使用cocoapods时常见错误
+ 请查看:(http://www.jianshu.com/p/dfc7b93e67eb)
+ 
+ iOS 下 Podfile 使用方法
+ 请查看:(http://www.cnblogs.com/Kennytian/p/6413734.html)
+ 
+ 如果出现下面问题,请尝试:cocoapods 出现 &quot;_OBJC_CLASS_$--&quot;, 
+ referenced from:的问题target-&gt;build setting
+  -&gt;other link flags 添加一个$(inherited) 
+</code></pre>
+
+
+</div>
+
+<br /><br />
+<hr />
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="15452900960303.html"  title="Previous Post: iOS开发建项-创建.pch文件">&laquo; iOS开发建项-创建.pch文件</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="15444196040960.html" 
+	        title="Next Post: created和mounted区别？">created和mounted区别？ &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '15452875829996.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
 </div></div>
 
 

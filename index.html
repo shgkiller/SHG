@@ -67,19 +67,33 @@
         <li><label>微信小程序</label></li>
 
           
-            <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
-          
-            <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
-          
-            <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+            <li><a title="微信小程序布局-列表布局" href="15452853184215.html">微信小程序布局-列表布局</a></li>
           
             <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
           
+            <li><a title="微信小程序建项-轮播" href="15452738125591.html">微信小程序建项-轮播</a></li>
+          
+            <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+          
             <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+          
+            <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
           
             <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
           
             <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>iOS开发</label></li>
+
+          
+            <li><a title="iOS开发建项-屏幕适配" href="15452905153597.html">iOS开发建项-屏幕适配</a></li>
+          
+            <li><a title="iOS开发建项-创建.pch文件" href="15452900960303.html">iOS开发建项-创建.pch文件</a></li>
+          
+            <li><a title="iOS开发建项-使用三方管理工具cocopods集成" href="15452875829996.html">iOS开发建项-使用三方管理工具cocopods集成</a></li>
           
 
       
@@ -136,19 +150,31 @@
                     
                       <li class="side-title"><span>微信小程序</span></li>
                         
-                          <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
-                        
-                          <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
-                        
-                          <li><a title="微信小程序键项-轮播" href="15452738125591.html">微信小程序键项-轮播</a></li>
+                          <li><a title="微信小程序布局-列表布局" href="15452853184215.html">微信小程序布局-列表布局</a></li>
                         
                           <li><a title="微信小程序布局-网格布局" href="15452730253716.html">微信小程序布局-网格布局</a></li>
                         
+                          <li><a title="微信小程序建项-轮播" href="15452738125591.html">微信小程序建项-轮播</a></li>
+                        
+                          <li><a title="微信小程序-js页面相关常用方法" href="15452740757489.html">微信小程序-js页面相关常用方法</a></li>
+                        
                           <li><a title="微信小程序-相关属性方法" href="15452720884943.html">微信小程序-相关属性方法</a></li>
+                        
+                          <li><a title="微信小程序-跑马灯" href="15452844825929.html">微信小程序-跑马灯</a></li>
                         
                           <li><a title="微信小程序-自检更新方法" href="15452718196856.html">微信小程序-自检更新方法</a></li>
                         
                           <li><a title="点击事件 bindtap事件与catchtap事件" href="bindtap-catchtap.html">点击事件 bindtap事件与catchtap事件</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>iOS开发</span></li>
+                        
+                          <li><a title="iOS开发建项-屏幕适配" href="15452905153597.html">iOS开发建项-屏幕适配</a></li>
+                        
+                          <li><a title="iOS开发建项-创建.pch文件" href="15452900960303.html">iOS开发建项-创建.pch文件</a></li>
+                        
+                          <li><a title="iOS开发建项-使用三方管理工具cocopods集成" href="15452875829996.html">iOS开发建项-使用三方管理工具cocopods集成</a></li>
                         
 
                     
@@ -180,44 +206,26 @@
 
 	
 		<div class="markdown-body">
-		<h1>微信小程序-跑马灯</h1>
+		<h1>iOS开发建项-屏幕适配</h1>
 
-		<pre><code class="language-text"> 在wxml页面加如下代码：
-       
-&lt;view class=&#39;scroll_view_border&#39;&gt;
-&lt;view class=&quot;srcoll_view&quot; bindtap=&quot;textclick&quot;&gt;这武器那都好，就是不吃药只能战斗15秒，15秒内不是你死就是我亡，这才是90级史诗该有的王者风范!&lt;/view&gt;
+		<h5 id="toc_0">目前苹果手机各种机型对应的屏幕尺寸</h5>
 
-&lt;/view&gt;
-
-在wxss页面加如下代码：
-
-.srcoll_view{
-position: absolute;
-top:0rpx;
-height: 100rpx;
-font-size: 30rpx;
-white-space: nowrap;
-line-height: 100rpx;
-color: #00bff3;
-animation:myfirst 20s linear infinite;
-}
-@keyframes myfirst
-{
-  0% {margin-left:750rpx;}
-  100% {margin-left:-1500rpx;}
-}
-.scroll_view_border{
-position: relative;
-width: 100%;
-background: rgba(0, 0, 0, 0.2);
-height: 100rpx;
-overflow: hidden;
-}
-
-</code></pre>
+<p><img src="media/15452905153597/15452906789785.jpg" alt="" style="width:415px;"/></p>
 
 
 		</div>
+	
+
+ 
+	
+
+ 
+	
+
+ 
+	
+
+ 
 	
 
  
