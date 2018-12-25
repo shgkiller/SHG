@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  iOS开发 - 时光宝盒
+  微信小程序-网络请求封装与页面跳转 - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -221,29 +221,285 @@
             </div>
             <div class="large-9 medium-9 columns">
 
+ <div class="markdown-body">
+<h1>微信小程序-网络请求封装与页面跳转</h1>
+
+<pre><code class="language-text">var app = getApp();
+/**
+ * POST请求，
+ * URL：接口
+ * postData：参数，json类型
+ * doSuccess：成功的回调函数
+ * doFail：失败的回调函数
+ * 
+ * 验证token的post请求
+ * 
+ */
+function requestAuthPOST(url, postData, doSuccess, doFail) {
+  console.log(&#39;-------------------请求开始-------------------&#39;)
+  console.log(&quot;requestAuthPOST请求的url---&gt;&quot; + app.data.baseURL + url)
+  console.log(&quot;请求的user_token---&gt;&quot; + getApp().data.user_token)
+  console.log(&#39;请求参数如下：&#39;)
+  console.log(postData)
+
+  wx.request({
+    url: app.data.baseURL + url,
+    header: {
+      &#39;content-type&#39;: &#39;application/json&#39;,
+      &#39;Authorization&#39;: &#39;Bearer &#39; + getApp().data.user_token,
+    },
+    data: postData,
+    method: &#39;POST&#39;,
+    success: function(res) {
+      console.log(&#39;请求success方法里返回的数据---&gt;&#39;)
+      console.log(res.data)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doSuccess(res.data);
+    },
+    fail: function(res) {
+      console.log(&#39;请求fail方法里返回的数据---&gt;&#39;)
+      console.log(res)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doFail(res.data);
+    },
+  })
+}
+/**
+ * POST请求，
+ * URL：接口
+ * postData：参数，json类型
+ * doSuccess：成功的回调函数
+ * doFail：失败的回调函数
+ * 
+ * 不验证token的post请求
+ * 
+ */
+function requestAuthPOSTUNTOKEN(url, postData, doSuccess, doFail) {
+  console.log(&#39;-------------------请求开始-------------------&#39;)
+  console.log(&quot;requestAuthPOST请求的url---&gt;&quot; + app.data.baseURL + url)
+  console.log(&quot;请求的user_token---&gt;&quot; + getApp().data.user_token)
+  console.log(&#39;请求参数如下：&#39;)
+  console.log(postData)
+
+  wx.request({
+    url: app.data.baseURL + url,
+    header: {
+      &#39;content-type&#39;: &#39;application/json&#39;,
+      // &#39;Authorization&#39;: &#39;Bearer &#39; + getApp().data.user_token,
+    },
+    data: postData,
+    method: &#39;POST&#39;,
+    success: function (res) {
+      console.log(&#39;请求success方法里返回的数据---&gt;&#39;)
+      console.log(res.data)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doSuccess(res.data);
+    },
+    fail: function (res) {
+      console.log(&#39;请求fail方法里返回的数据---&gt;&#39;)
+      console.log(res)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doFail(res.data);
+    },
+  })
+}
+/**
+ * GET请求，
+ * URL：接口
+ * postData：参数，json类型
+ * doSuccess：成功的回调函数
+ * doFail：失败的回调函数
+ * 
+ * 验证token的get请求
+ * 
+ */
+function requestAuthGET(url, getData, doSuccess, doFail) {
+  console.log(&#39;-------------------请求开始-------------------&#39;)
+  console.log(&quot;requestAuthGET请求的url---&gt;&quot; + app.data.baseURL + url)
+  console.log(&quot;请求的user_token---&gt;&quot; + getApp().data.user_token)
+  console.log(&#39;请求参数如下：&#39;)
+  console.log(getData)
+
+  wx.request({
+    url: app.data.baseURL + url,
+    header: {
+      &#39;content-type&#39;: &#39;application/json&#39;,
+      &#39;Authorization&#39;: &#39;Bearer &#39; + getApp().data.user_token,
+    },
+    data: getData,
+    method: &#39;GET&#39;,
+    success: function(res) {
+      console.log(&#39;请求success方法里返回的数据---&gt;&#39;)
+      console.log(res.data)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doSuccess(res.data);
+    },
+    fail: function(res) {
+      console.log(&#39;请求fail方法里返回的数据---&gt;&#39;)
+      console.log(res)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doFail(res.data);
+    },
+  })
+}
+function requestAuthGET(url, getData, doSuccess, doFail) {
+  console.log(&#39;-------------------请求开始-------------------&#39;)
+  console.log(&quot;requestAuthGET请求的url---&gt;&quot; + app.data.baseURL + url)
+  console.log(&quot;请求的user_token---&gt;&quot; + getApp().data.user_token)
+  console.log(&#39;请求参数如下：&#39;)
+  console.log(getData)
+
+  wx.request({
+    url: app.data.baseURL + url,
+    header: {
+      &#39;content-type&#39;: &#39;application/json&#39;,
+      &#39;Authorization&#39;: &#39;Bearer &#39; + getApp().data.user_token,
+    },
+    data: getData,
+    method: &#39;GET&#39;,
+    success: function(res) {
+      console.log(&#39;请求success方法里返回的数据---&gt;&#39;)
+      console.log(res.data)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doSuccess(res.data);
+    },
+    fail: function(res) {
+      console.log(&#39;请求fail方法里返回的数据---&gt;&#39;)
+      console.log(res)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doFail(res.data);
+    },
+  })
+}
+/**
+ * GET请求，
+ * URL：接口
+ * postData：参数，json类型
+ * doSuccess：成功的回调函数
+ * doFail：失败的回调函数
+ * 
+ * 不验证token的get请求
+ * 
+ */
+function requestAuthCancelGET(url, getData, doSuccess, doFail) {
+  console.log(&#39;-------------------请求开始-------------------&#39;)
+  console.log(&quot;requestAuthCancelGET请求的url---&gt;&quot; + app.data.baseURL + url)
+  console.log(&quot;请求不验证token&quot;)
+  console.log(&#39;请求参数如下：&#39;)
+  console.log(getData)
+
+  wx.request({
+    url: app.data.baseURL + url,
+    header: {
+      &#39;content-type&#39;: &#39;application/json&#39;,
+    },
+    data: getData,
+    method: &#39;GET&#39;,
+    success: function(res) {
+      console.log(&#39;请求success方法里返回的数据---&gt;&#39;)
+      console.log(res.data)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doSuccess(res.data);
+    },
+    fail: function(res) {
+      console.log(&#39;请求fail方法里返回的数据---&gt;&#39;)
+      console.log(res)
+      console.log(&#39;-------------------请求结束-------------------&#39;)
+      doFail();
+    },
+  })
+}
+
+ * module.exports用来导出代码
+ * js文件中通过var k_request = require(&quot;../../util/request.js&quot;) 加载
+ * 项目目录不止一级， 不同的js文件对应的工具类的位置不一样 ../ 级数也就不一样
  
+module.exports.requestAuthGET = requestAuthGET;
+module.exports.requestAuthPOST = requestAuthPOST;
+module.exports.requestAuthPOSTUNTOKEN = requestAuthPOSTUNTOKEN;
+module.exports.requestAuthCancelGET = requestAuthCancelGET;
+</code></pre>
+
+<h4 id="toc_0">微信小程序点击方法传参与跳页传参</h4>
+
+<pre><code class="language-text">点击事件
+bindtap  事件绑定不会阻止冒泡事件向上冒泡
+catchtap  事件绑定可以阻止冒泡事件向上冒泡
+
+点击事件的参数传递：
+target：触发事件的源组件
+currentTarget：事件绑定的当前事件
+</code></pre>
+
+<p>跳转页面</p>
+
+<pre><code class="language-text">wx.navigateTo({
+url: &#39;../Temp/Temp?province=&#39; + this.data.name + &#39;&amp;selectedindex=&#39; + index + &#39;&amp;arrayIndex=&#39; + JSON.stringify(this.data.arrayIndex),
+})
+</code></pre>
+
+<p>小程序跳转方式</p>
+
+<pre><code class="language-text">打开新页面,保有原来页面     调用 API wx.navigateTo
+
+关闭当前页面，跳转到应用内的某个页面  调用 API wx.redirectTo
+
+页面返回        调用 API wx.navigateBack
+
+Tab 切换      调用 API wx.switchTab
+
+重启动         调用 API wx.reLaunch
+</code></pre>
+
+<p>需要注意</p>
+
+<pre><code class="language-text">1.navigateTo, redirectTo 只能打开非 tabBar 页面。
+2.switchTab 只能打开 tabBar 页面。
+3.reLaunch 可以打开任意页面。
+4.页面底部的 tabBar 由页面决定，即只要是定义为 tabBar 的页面，底部都有 tabBar。
+5.tabBar只能配置最少2个、最多5个 tab
+6.调用页面路由带的参数可以在目标页面的onLoad中获取
+</code></pre>
 
 
-	
-		<div class="markdown-body">
-		<h1>iOS开发建项-屏幕适配</h1>
+</div>
 
-		<h5 id="toc_0">目前苹果手机各种机型对应的屏幕尺寸</h5>
+<br /><br />
+<hr />
 
-<p><img src="media/15452905153597/15452906789785.jpg" alt="" style="width:415px;"/></p>
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="15457215268324.html"  title="Previous Post: 微信小程序-提示信息">&laquo; 微信小程序-提示信息</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="15457200930028.html" 
+	        title="Next Post: 小程序创建项目-tabbar">小程序创建项目-tabbar &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
 
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
 
-		</div>
-	
-
- 
-	
-
- 
-	
-
-  
-  
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '15457204809266.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
 </div></div>
 
 

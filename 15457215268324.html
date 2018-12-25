@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  iOS开发 - 时光宝盒
+  微信小程序-提示信息 - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -221,29 +221,97 @@
             </div>
             <div class="large-9 medium-9 columns">
 
+ <div class="markdown-body">
+<h1>微信小程序-提示信息</h1>
+
+<p>加载的loading</p>
+
+<pre><code class="language-text">  wx.showLoading({
+      title: &#39;正在加载&#39;,
+      mask: true,
+    })
+   wx.hideLoading();
+</code></pre>
+
+<p>Toast软提示</p>
+
+<pre><code class="language-text">  mask   Boolean     否   是否显示透明蒙层，防止触摸穿透，默认：false
+ icon   String  否   图标，有效值 &quot;success&quot;, &quot;loading&quot;, &quot;none&quot;
  
+ wx.showToast({
+        title: &#39;请输入提示语&#39;,
+        icon: &#39;none&#39;,
+        mask:true,
+        duration: 2000
+      }) 
+</code></pre>
+
+<p>延迟执行</p>
+
+<pre><code class="language-text">setTimeout(function() {
+   wx.hideLoading()
+ }, 1000)
+</code></pre>
+
+<p>弹出提示窗</p>
+
+<pre><code class="language-text">wx.showModal({
+    title: &#39;我是弹窗标题&#39;,
+    content: &#39;佛系弹窗详情内容&#39;,
+    success: function(res) {
+      if (res.confirm) {
+        console.log(&#39;用户点击确定&#39;)
+      } else if (res.cancel) {
+        console.log(&#39;用户点击取消&#39;)
+      }
+    }
+  }) 
+</code></pre>
+
+<p>注意：</p>
+
+<pre><code class="language-text">如果wx.hideLoading 和wx.showToast或者wx.showModal共用，需要加个延迟 不然 wx.showToast和 wx.showModal 不会出现
+</code></pre>
 
 
-	
-		<div class="markdown-body">
-		<h1>iOS开发建项-屏幕适配</h1>
+</div>
 
-		<h5 id="toc_0">目前苹果手机各种机型对应的屏幕尺寸</h5>
+<br /><br />
+<hr />
 
-<p><img src="media/15452905153597/15452906789785.jpg" alt="" style="width:415px;"/></p>
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="15457278811073.html"  title="Previous Post: 微信小程序-二维码">&laquo; 微信小程序-二维码</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="15457204809266.html" 
+	        title="Next Post: 微信小程序-网络请求封装与页面跳转">微信小程序-网络请求封装与页面跳转 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
 
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
 
-		</div>
-	
-
- 
-	
-
- 
-	
-
-  
-  
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '15457215268324.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
 </div></div>
 
 
