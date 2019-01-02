@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  微信小程序 - 时光宝盒
+  IsNullOrEmpty和IsNullOrWhiteSpace的区别 - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -247,102 +247,65 @@
             </div>
             <div class="large-9 medium-9 columns">
 
- 
+ <div class="markdown-body">
+<h1>IsNullOrEmpty和IsNullOrWhiteSpace的区别</h1>
 
+<p>1.String.IsNullOrEmpty 方法 (String)</p>
 
-	
-		<div class="markdown-body">
-		<h1>小程序创建项目-tabbar</h1>
-
-		<pre><code class="language-text">{
-  &quot;pages&quot;: [
-    &quot;pages/mhLoading/mhLoading&quot;,
-    &quot;pages/mhMain/mhMain&quot;,
-    &quot;pages/mhLesson/mhLesson&quot;,
-    &quot;pages/mhMine/mhMine&quot;,
-    &quot;pages/mhService/mhService&quot;,
-    &quot;pages/mhLogin/mhLogin&quot;,
-  ],
-  &quot;window&quot;: {
-    &quot;backgroundTextStyle&quot;: &quot;light&quot;,
-    &quot;navigationBarBackgroundColor&quot;: &quot;#1B1B40&quot;,
-    &quot;navigationBarTitleText&quot;: &quot;米哈健身&quot;,
-    &quot;navigationBarTextStyle&quot;: &quot;white&quot;
-  },
-  &quot;tabBar&quot;: {
-    &quot;color&quot;: &quot;#595978&quot;,
-    &quot;selectedColor&quot;: &quot;#00DBC3&quot;,
-    &quot;borderStyle&quot;: &quot;black&quot;,
-    &quot;backgroundColor&quot;: &quot;#1B1B40&quot;,
-    &quot;list&quot;: [
-      {
-        &quot;selectedIconPath&quot;: &quot;images/homesel.png&quot;,
-        &quot;iconPath&quot;: &quot;images/homeunsel.png&quot;,
-        &quot;pagePath&quot;: &quot;pages/mhMain/mhMain&quot;,
-        &quot;text&quot;: &quot;首页&quot;
-      },
-      {
-        &quot;selectedIconPath&quot;: &quot;images/lessonsel.png&quot;,
-        &quot;iconPath&quot;: &quot;images/lessonunsel.png&quot;,
-        &quot;pagePath&quot;: &quot;pages/mhLesson/mhLesson&quot;,
-        &quot;text&quot;: &quot;课程&quot;
-      },
-      {
-        &quot;selectedIconPath&quot;: &quot;images/servicesel.png&quot;,
-        &quot;iconPath&quot;: &quot;images/serviceunsel.png&quot;,
-        &quot;pagePath&quot;: &quot;pages/mhService/mhService&quot;,
-        &quot;text&quot;: &quot;服务&quot;
-      },
-      {
-        &quot;selectedIconPath&quot;: &quot;images/minesel.png&quot;,
-        &quot;iconPath&quot;: &quot;images/mineunsel.png&quot;,
-        &quot;pagePath&quot;: &quot;pages/mhMine/mhMine&quot;,
-        &quot;text&quot;: &quot;我的&quot;
-      }
-    ]
-  }
-}
+<pre><code class="language-text">指示指定的字符串是 null 还是 Empty 字符串。
+IsNullOrEmpty是一种便利方法，可用于同时测试String是否是null或其值为Empty。 它等效于以下代码︰
+result = s == null || s == String.Empty;
 </code></pre>
 
+<p>2.String.IsNullOrWhiteSpace 方法 (String)</p>
 
-		</div>
-	
+<pre><code class="language-text">指示指定的字符串是 null、空还是仅由空白字符组成。
+IsNullOrWhiteSpace是具有类似于下面的代码，只不过它提供优越性能的便捷方法︰
+return String.IsNullOrEmpty(value) || value.Trim().Length == 0;
+</code></pre>
 
- 
-	
+<p>总结：<br/>
+<img src="media/15457950313360/15457952419450.jpg" alt="" style="width:566px;"/></p>
 
- 
-	
 
- 
-	
+</div>
 
- 
-	
+<br /><br />
+<hr />
 
- 
-	
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="15458049261092.html"  title="Previous Post: C#字符串的处理方法">&laquo; C#字符串的处理方法</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="15453566744963.html" 
+	        title="Next Post: MACOS环境下Vue环境搭建以及Element-UI集成">MACOS环境下Vue环境搭建以及Element-UI集成 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
 
- 
-	
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
 
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
-  
-  
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '15457950313360.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
 </div></div>
 
 
