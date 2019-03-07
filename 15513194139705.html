@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  2. 浅析Helloword项目 - 时光宝盒
+  iOS动画中的枚举UIViewAnimationOptions - 时光宝盒
   
   </title>
  <meta name="description" content="">
@@ -290,92 +290,63 @@
             <div class="large-9 medium-9 columns">
 
  <div class="markdown-body">
-<h1>2. 浅析Helloword项目</h1>
+<h1>iOS动画中的枚举UIViewAnimationOptions</h1>
 
-<p>项目结构：C++工程结构<br/>
-<img src="media/15428583120056/865AF051-A18D-460C-9105-586CA7227134.png" alt="865AF051-A18D-460C-9105-586CA7227134"/></p>
+<h4 id="toc_0">首先这个枚举属于UIViewAnimation。我们经常使用的函数是 [UIView animateWithDuration: animations:<sup>{}</sup> completion:<sup>BOOL finished</sup> {}];和[UIView animateWithDuration: animations:<sup>{}];如果动画稍微复杂点，例如需要组合等等就可能用到这个函数：[UIView</sup> animateWithDuration: delay: options: animations: completion:<sup>BOOL finished</sup> {}];刚开始接触的朋友看到一堆枚举可能就觉得烦，尤其是苹果那混乱的动画框架东一坨，西一坨。又是Quartz2D，又是核心动画跟臭袜子一样……没关系，捡回来接着穿。</h4>
 
-<ol>
-<li><p><strong>Classes文件夹</strong></p>
-<p>存放C++文件，定义游戏的所有文件</p></li>
-<li><p><strong>Resources文件夹</strong><br/>
-主要存放 图片、音频、动画、字体等文件</p></li>
-<li><p><strong>Frameworkers</strong><br/>
-存放库文件，有ios用的 和 cocos2d-x用的库文件，三方文件</p></li>
-<li><p><strong>cocos2d_libs.scodeproj 工程文件</strong><br/>
-它包含了cocos2d-x引擎的源码,它是以类库的形式引入到了ios的工程里 </p></li>
-<li><p><strong>cocos2d-x的声明周期</strong><br/>
-它的生命周期类似于ios oc开发 </p>
-<ul>
-<li>applicationDidFinishLaunching  程序启动入口</li>
-<li>applicationDidEnterBackground  程序进入后台</li>
-<li>applicationWillEnterForeground 程序将要进入前台</li>
-</ul></li>
-<li><p><strong>部分代码含义</strong></p>
-<ol>
-<li><p>auto director = Director::getInstance();</p>
-<ul>
-<li>导演类 以单例的形式创建和调用</li>
-</ul></li>
-<li><p>auto glview = director-&gt;getOpenGLView();</p>
-<ul>
-<li>获取opengl视图<br/></li>
-</ul></li>
-<li><p>director-&gt;setDisplayStats(true); 设置是否显示帧率信息</p>
-<ul>
-<li>GL verts:    opengl 中渲染的顶点数</li>
-<li>GL calls:    opengl 中渲染的批次</li>
-<li>xx/xx        帧率/ 每帧运行的秒数</li>
-</ul></li>
-<li><p>director-&gt;setAnimationInterval(1.0f / 60);  设置帧率大小。<br/>
-引擎的默认设置每秒钟60帧，也就是屏幕每秒钟会刷新重绘60次，它基本满足人眼每秒刷新的最高频率的一个完美运行状态，超出60帧，对人的观看 意义不大，感官上基本识别不出来了已经。</p></li>
-<li><p>auto scene = HelloWorld::createScene();</p>
-<ul>
-<li>创建一个场景对象</li>
-</ul></li>
-<li><p>director-&gt;runWithScene(scene);</p>
-<ul>
-<li>运行启动场景 </li>
-</ul></li>
-<li><p>getVisiblesize();</p>
-<ul>
-<li>获取可视区域的大小</li>
-</ul></li>
-<li><p>getWinSize();</p>
-<ul>
-<li>获取窗口的大小</li>
-</ul></li>
-<li><p>场景scene类 它就是一个层的容器 它是抽象出来的一个类</p></li>
-<li><p>layer类  </p></li>
-<li><p>一个场景中可能会有多个层 或者一个层，先添加的层会在后添加的层的下面 </p>
-<ul>
-<li>addChild（Node * child ,int localzOrder, int tag） localzOrder值越大 它的层越靠上，它的默认值是0。 tag是个标记值，可以通过tag获取某个层。</li>
-</ul></li>
-<li><p>精灵类 sprite <br/>
-多边形精灵(Polygon Sprite) 也是一个精灵，同样是为了展示一个可以被控制的图像，但是和普通精灵的区别是，普通精灵在绘图处理中被分为了两个三角形，多边形精灵则是被分为了一系列三角形。<br/>
-<img src="media/15428583120056/polygonsprite.png" alt="polygonsprite"/></p></li>
-</ol>
-<p>注意左右两种情况的不同。<br/>
-左侧，是一个典型的精灵绘制时的处理，精灵被处理成一个有两个三角形组成的矩形。<br/>
-右侧，是一个多边形精灵绘制时的处理，精灵被处理成一系列小的三角形。</p>
-<p>显然可以看到，右侧多边形精灵需要绘制的像素数量比左侧精灵需要的像素数量更   小，但是由于划分了多个三角形出现了更多的顶点，由于在现代的图形处理中，一般绘制定点比绘制像素消耗的性能少。所以多边形精灵的性能更好，实际的测试结果也验证了这一点。</p>
-<p>精灵的一些常用属性：</p>
-<blockquote>
-<p>sprite-&gt;setRotation(60.0f); //旋转度<br/>
-sprite-&gt;setScaleX(0.5); //缩放比例<br/>
-sprite-&gt;setSkewX(20.0); //倾斜度<br/>
-sprite-&gt;setContentSize(Size(200, 200)); //设置精灵的大小<br/>
-sprite-&gt;setColor(Color3B(200, 150, 200)); //重新设置图片的颜色<br/>
-sprite-&gt;setOpacity(100);//设置精灵的透明度 范围0-255</p>
-</blockquote>
-<p>13.action<br/>
-MoveTo是移动哪个点的位置<br/>
-auto moveTo = MoveTo::create(2, Vec2(50, 100));<br/>
-sprinte-&gt;runAction(moveTo);<br/>
-MoveBy是以自己为0点 要移动的距离<br/>
-auto moveBy = MoveBy::create(4, Vec2(50, 0));<br/>
-sprinte-&gt;runAction(moveBy);</p></li>
-</ol>
+<p>以上方法中的options一项需要传入一个枚举，这个枚举大概控制的是这几个要素：当前动画嵌套中的动画执行随时间的快慢种类（先快后慢等..）。动画要一直重复吗。如果我使用转场动画那么我用哪种转场效果。还有子动画嵌套在父动画中时我们如何对待父动画中的相同选项等等..<br/>
+正文：</p>
+
+<pre><code class="language-text">UIViewAnimationOptionLayoutSubviews            //提交动画的时候布局子控件，表示子控件将和父控件一同动画。
+
+UIViewAnimationOptionAllowUserInteraction      //动画时允许用户交流，比如触摸
+
+UIViewAnimationOptionBeginFromCurrentState     //从当前状态开始动画
+
+UIViewAnimationOptionRepeat                    //动画无限重复
+
+UIViewAnimationOptionAutoreverse               //执行动画回路,前提是设置动画无限重复
+
+UIViewAnimationOptionOverrideInheritedDuration //忽略外层动画嵌套的执行时间
+
+UIViewAnimationOptionOverrideInheritedCurve    //忽略外层动画嵌套的时间变化曲线
+
+UIViewAnimationOptionAllowAnimatedContent      //通过改变属性和重绘实现动画效果，如果key没有提交动画将使用快照
+
+UIViewAnimationOptionShowHideTransitionViews   //用显隐的方式替代添加移除图层的动画效果
+
+UIViewAnimationOptionOverrideInheritedOptions  //忽略嵌套继承的选项
+</code></pre>
+
+<p>//时间函数曲线相关</p>
+
+<pre><code class="language-text">UIViewAnimationOptionCurveEaseInOut            //时间曲线函数，缓入缓出，中间快
+
+UIViewAnimationOptionCurveEaseIn               //时间曲线函数，由慢到特别快（缓入快出）
+
+UIViewAnimationOptionCurveEaseOut              //时间曲线函数，由快到慢(快入缓出)
+
+UIViewAnimationOptionCurveLinear               //时间曲线函数，匀速
+</code></pre>
+
+<p>//转场动画相关的</p>
+
+<pre><code class="language-text">UIViewAnimationOptionTransitionNone            //无转场动画
+
+UIViewAnimationOptionTransitionFlipFromLeft    //转场从左翻转
+
+UIViewAnimationOptionTransitionFlipFromRight   //转场从右翻转
+
+UIViewAnimationOptionTransitionCurlUp          //上卷转场
+
+UIViewAnimationOptionTransitionCurlDown        //下卷转场
+
+UIViewAnimationOptionTransitionCrossDissolve   //转场交叉消失
+
+UIViewAnimationOptionTransitionFlipFromTop     //转场从上翻转
+
+UIViewAnimationOptionTransitionFlipFromBottom  //转场从下翻转
+</code></pre>
 
 
 </div>
@@ -387,15 +358,15 @@ sprinte-&gt;runAction(moveBy);</p></li>
   <div class="large-6 columns">
 	<div class="text-left" style="padding:15px 0px;">
 		
-	        <a href="15428721356689.html"  title="Previous Post: 3. Position和AnchorPoint的关系">&laquo; 3. Position和AnchorPoint的关系</a>
+	        <a href="15519403615674.html"  title="Previous Post: IOS 导出ipa包的4中方式![C14AD5CE-D923-4092-AA50-8D23BE6FCDB5](media/15519403615674/C14AD5CE-D923-4092-AA50-8D23BE6FCDB5.png)">&laquo; IOS 导出ipa包的4中方式![C14AD5CE-D923-4092-AA50-8D23BE6FCDB5](media/15519403615674/C14AD5CE-D923-4092-AA50-8D23BE6FCDB5.png)</a>
 	    
 	</div>
   </div>
   <div class="large-6 columns">
 	<div class="text-right" style="padding:15px 0px;">
 		
-	        <a href="15428544691205.html" 
-	        title="Next Post: 1. Cocos2d-x如何创建项目">1. Cocos2d-x如何创建项目 &raquo;</a>
+	        <a href="15481282100084.html" 
+	        title="Next Post: module.exports与exports,export和export default">module.exports与exports,export和export default &raquo;</a>
 	    
 	</div>
   </div>
@@ -408,7 +379,7 @@ sprinte-&gt;runAction(moveBy);</p></li>
 </div>
 <script type="text/javascript">
 	$(function(){
-		var currentURL = '15428583120056.html';
+		var currentURL = '15513194139705.html';
 		$('#side-nav a').each(function(){
 			if($(this).attr('href') == currentURL){
 				$(this).parent().addClass('active');
